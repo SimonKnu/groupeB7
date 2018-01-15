@@ -19,14 +19,8 @@ public class Personne implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String login;
-	private String password;
-	private String nom;
-	private String prenom;
-	private Date dateNais;
-	
-	@OneToOne(cascade=CascadeType.ALL)
-	private Adresse domicile;
-	
+	private String password;;
+
 	@OneToMany(cascade=CascadeType.ALL)
 	private List<Evenement> events = new ArrayList<Evenement>();
 	
@@ -34,12 +28,9 @@ public class Personne implements Serializable{
 	
 	public Personne() {
 	}
-	public Personne(String login, String password, String nom, String prenom, Date date) {
+	public Personne(String login, String password) {
 		this.login = login;
 		this.password = password;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.dateNais = date;
 	}
 
 	
@@ -64,37 +55,19 @@ public class Personne implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	
-	public String getNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
 	
-	public String getPrenom() {
-		return prenom;
-	}
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+	public void ajouterEvent(Evenement event) {
+		if(!events.contains(event)) {
+			events.add(event);
+		}
 	}
 	
-	public Date getDateNais() {
-		return dateNais;
-	}
-	public void setDateNais(Date dateNais) {
-		this.dateNais = dateNais;
-	}
 	
-	public Adresse getDomicile() {
-		return domicile;
-	}
-	public void setDomicile(Adresse domicile) {
-		this.domicile = domicile;
-	}
 	
 	public String toString() {
-		return id + " : "+login+" | "+password+" | "+nom+" | "+prenom+" | "+dateNais;
+		return id + " : "+login+" | "+password;
 	}
 
 }
