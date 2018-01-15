@@ -26,11 +26,11 @@
 	
 		<properties>
 		    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-		    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dbb7"/> 
+		    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://54.76.209.52/dbb7"/> 
 	  		<!--  <property name="javax.persistence.schema-generation.database.action" value="create"/> -->
 		  
-		    <property name="javax.persistence.jdbc.user" value="test"/>
-			<property name="javax.persistence.jdbc.password" value="test"/> 
+		    <property name="javax.persistence.jdbc.user" value="gb7"/>
+			<property name="javax.persistence.jdbc.password" value="3325"/> 
 
 		</properties>
 	</persistence-unit>
