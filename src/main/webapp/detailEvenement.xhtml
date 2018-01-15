@@ -10,21 +10,23 @@
     </h:head>
     
     <h:body style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px;">
-    	<h2>Evénements</h2>
-        <h:dataTable value="#{evenementController.doListEvent()}" var="event"
+       <h:dataTable value="#{evenementController.getEvent()}" var="event"
     			styleClass="order-table"
     			headerClass="order-table-header"
     			rowClasses="order-table-odd-row,order-table-even-row"
     		>
-
     		<h:column>
+    			<f:facet name="header">Nom</f:facet>
     			<h:outputLabel value="#{event.nom}"></h:outputLabel>
     		</h:column>		
     		<h:column>
-    			<h:form>
-    				<h:commandButton value="Plus de détails" action="#{evenementController.goDetailEvent(event)}"></h:commandButton>
-    			</h:form>
-    		</h:column>
+    			<f:facet name="header">Lieu</f:facet>
+    			<h:outputLabel value="#{event.lieu}"></h:outputLabel>
+    		</h:column>	
+    		<h:column>
+    			<f:facet name="header">Description</f:facet>
+    			<h:outputLabel value="#{event.description}"></h:outputLabel>
+    		</h:column>	
     	</h:dataTable>
   
 
