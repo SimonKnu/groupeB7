@@ -2,7 +2,7 @@
 <persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 	
 	<persistence-unit name="groupeb7JTA" transaction-type="JTA">
-	<jta-data-source>jdbc/groupeB7</jta-data-source>
+		<jta-data-source>jdbc/groupeB7</jta-data-source>
 		  
 		<class>be.helha.groupeB7.entities.Personne</class>	
 		<class>be.helha.groupeB7.entities.Utilisateur</class>	
@@ -14,25 +14,25 @@
 	</persistence-unit>
 	
 	
+	<!--
+		<persistence-unit name="groupeb7" transaction-type="RESOURCE_LOCAL">
+			  
+			<class>be.helha.groupeB7.entities.Personne</class>	
+			<class>be.helha.groupeB7.entities.Utilisateur</class>	
+			<class>be.helha.groupeB7.entities.Administrateur</class>	
+			<class>be.helha.groupeB7.entities.Adresse</class>
+			<class>be.helha.groupeB7.entities.Evenement</class>			
+			<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		
+			<properties>
+			    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://54.76.209.52:3306/dbb7"/> 
+		  		<property name="javax.persistence.schema-generation.database.action" value="create"/>
+			  
+			    <property name="javax.persistence.jdbc.user" value="gb7"/>
+				<property name="javax.persistence.jdbc.password" value="3325"/> 
 	
-	<persistence-unit name="groupeb7" transaction-type="RESOURCE_LOCAL">
-		  
-		<class>be.helha.groupeB7.entities.Personne</class>	
-		<class>be.helha.groupeB7.entities.Utilisateur</class>	
-		<class>be.helha.groupeB7.entities.Administrateur</class>	
-		<class>be.helha.groupeB7.entities.Adresse</class>
-		<class>be.helha.groupeB7.entities.Evenement</class>			
-		<exclude-unlisted-classes>true</exclude-unlisted-classes>
-	
-		<properties>
-		    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-		    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://54.76.209.52:3306/dbb7"/> 
-	  		<!--  <property name="javax.persistence.schema-generation.database.action" value="create"/> -->
-		  
-		    <property name="javax.persistence.jdbc.user" value="test"/>
-			<property name="javax.persistence.jdbc.password" value="test"/> 
-
-		</properties>
-	</persistence-unit>
-	
+			</properties>
+		</persistence-unit>
+	-->
 </persistence>
