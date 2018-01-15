@@ -17,18 +17,16 @@ public class Evenement {
 	private String description;
 	private Date dateDeb;
 	private Date dateFin;
-	private String imageURL;
 	
 	public Evenement() {
 		
 	}
-	public Evenement(String nom, String lieu, String description, Date dateDeb, Date dateFin, String image) {
+	public Evenement(String nom, String lieu, String description, Date dateDeb, Date dateFin) {
 		this.nom = nom;
 		this.lieu = lieu;
 		this.description=description;
 		this.dateDeb=dateDeb;
 		this.dateFin=dateFin;
-		this.imageURL=image;
 	}
 	
 	
@@ -74,20 +72,14 @@ public class Evenement {
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
-	
-	public String getImageURL() {
-		return imageURL;
-	}
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
-	}
+
 	
 	
 	
 	@Override
 	public String toString() {
 		return "id=" + id + ", nom=" + nom + ", lieu=" + lieu + ", description=" + description + ", dateDeb="
-				+ dateDeb + ", dateFin=" + dateFin + ", imageURL=" + imageURL;
+				+ dateDeb + ", dateFin=" + dateFin;
 	}
 	
 	
