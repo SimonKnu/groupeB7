@@ -9,8 +9,6 @@ import be.helha.groupeB7.sessionejb.GestionEvenementEJB;
 @Named
 @RequestScoped
 public class EvenementController {
-	
-	@EJB
-	private GestionEvenementEJB ejb;
+
 
 }
