@@ -44,7 +44,15 @@ public class Image implements Serializable {
 	public void setImageName(String imageName) {
 		this.imageName = imageName;
 	}
-
+	
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	
+	
 	
 	
 }

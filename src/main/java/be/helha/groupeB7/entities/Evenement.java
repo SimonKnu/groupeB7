@@ -2,6 +2,7 @@ package be.helha.groupeB7.entities;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
@@ -99,12 +100,17 @@ public class Evenement {
 	
 	*/
 	
-	public byte[] getCouverture() {
-		return couverture;
+	public String getCouverture() {
+		byte[] tmp = Base64.getEncoder().encode(couverture);
+		return new String(tmp);
 	}
 	public void setCouverture(byte[] couverture) {
 		this.couverture = couverture;
 	}
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "id=" + id + ", nom=" + nom + ", lieu=" + lieu + ", description=" + description + ", dateDeb="
