@@ -31,7 +31,7 @@
     		</h:column>
     	</h:dataTable>
   
-  		<h:form>
+  		<h:form enctype="multipart/form-data">
 			<h4>Ajouter un évènement</h4>
 				<h:panelGrid columns="2">	
 					<h:outputLabel value="Nom :"></h:outputLabel>
@@ -48,7 +48,8 @@
 					
 					<h:outputLabel value="Date de fin :"></h:outputLabel>
 					<h:inputText value="#{evenementController.dateFin}"></h:inputText>
-					
+					<h:outputLabel value="Image de couverture :"></h:outputLabel>
+					<h:inputFile value = "#{evenementController.file}"></h:inputFile>
 					<h:commandButton class="boutton" value="Créer un événement" action="#{evenementController.createEvent()}"></h:commandButton>
 			</h:panelGrid>
 		</h:form>
