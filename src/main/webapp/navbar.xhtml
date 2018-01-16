@@ -10,15 +10,15 @@
     
     <h:body style="padding-top: 50px;">
     	<b:navBar brand="MSF" brandHref="index.xhtml" inverse="true" fixed="top">
-  			<b:navbarLinks>
-   				<b:navLink value="Inscription" href="#{navigationController.goInscription()}"></b:navLink>
+  			<b:navbarLinks>		
    				<b:navLink value="Créer son événement" href="#{navigationController.goCreer()}"></b:navLink>
-   				<b:navLink value="A propos" href="#{navigationController.goAbout()}"></b:navLink>
    				<b:navLink value="Mes événements" href="#{navigationController.goMyEvents()}"></b:navLink>
    				<b:navLink value="Administration" href="#{navigationController.goAdmin()}"></b:navLink>
+   				<b:navLink value="A propos" href="#{navigationController.goAbout()}"></b:navLink>
     		</b:navbarLinks>
     		<b:navbarLinks pull="right">
-    			<b:navLink value="Connexion" href="#"></b:navLink>
+    			<b:navLink value="Connexion" href="connexion.xhtml"></b:navLink>
+    			<b:navLink value="Inscription" href="#{navigationController.goInscription()}"></b:navLink>
     		</b:navbarLinks>
         </b:navBar>
     </h:body>
