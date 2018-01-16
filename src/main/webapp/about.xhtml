@@ -6,12 +6,24 @@
       xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <title>A propos</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"></link>
     </h:head>
     
-    <h:body style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px;">
-    	<p> Site réalisé par ROMAIN Simon, CANNUYER Simon, LEPAPE Yorrick, </p>
-		<p> étudiants en informatique de gestion à la HELHa Campus Mons , </p>
-		<p> dans le cadre du cours d'Applications entreprise multi tiers de Mr. V. Altares. </p>
+    <h:body style="padding-left: 50px; padding-top: 50px;">
+    	<b:navBar inverse="true" fixed="top">
+  			<b:navbarLinks>
+   				<b:navLink value="Inscription" href="#{navigationController.goInscription()}"></b:navLink>
+   				<b:navLink value="Créer son événement" href="#{navigationController.goCreer()}"></b:navLink>
+   				<b:navLink value="A propos" href="#{navigationController.goAbout()}"></b:navLink>
+   				<b:navLink value="Mes événements" href="#{navigationController.goMyEvents()}"></b:navLink>
+   				<b:navLink value="Administration" href="#{navigationController.goAdmin()}"></b:navLink>
+    		</b:navbarLinks>
+        </b:navBar>
+        <b:container>
+            <b:jumbotron>
+                <p> Site réalisé par ROMAIN Simon, CANNUYER Simon, LEPAPE Yorrick, </p>
+				<p> étudiants en informatique de gestion à la HELHa Campus Mons , </p>
+				<p> dans le cadre du cours d'Applications entreprise multi tiers de Mr. V. Altares. </p>
+            </b:jumbotron>
+        </b:container>
     </h:body>
 </html>
