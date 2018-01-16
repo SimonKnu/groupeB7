@@ -47,7 +47,7 @@ public class EvenementController {
 		
 	}
 
-	public void createEvent() {
+	public String createEvent() {
 		if(!nom.isEmpty() && !lieu.isEmpty() && !description.isEmpty() && !dateDeb.isEmpty() && !dateFin.isEmpty()) {
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			Evenement e;
@@ -63,7 +63,9 @@ public class EvenementController {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			
 		}
+		return "index.xhtml?faces-redirect=true";
 	}
 	
 	

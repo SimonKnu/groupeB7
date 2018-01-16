@@ -1,24 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:b="http://bootsfaces.net/ui"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
-        <title>Evenements</title>
-     </h:head>
+        <title>Mes événements</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"></link>
+    </h:head>
     
-    <h:body>
-    	<b:navBar>
-  			<b:navbarLinks>
-   				<b:navLink value="Inscription" href="#{navigationController.goInscription()}"></b:navLink>
-   				<b:navLink value="Créer son événement" href="#{navigationController.goCreer()}"></b:navLink>
-   				<b:navLink value="A propos" href="#{navigationController.goAbout()}"></b:navLink>
-   				<b:navLink value="Mes événements" href="#{navigationController.goMyEvents()}"></b:navLink>
-   				<b:navLink value="Administration" href="#{navigationController.goAdmin()}"></b:navLink>
-    		</b:navbarLinks>
-        </b:navBar>
-        <b:container>
+    <h:body style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px;">
+    	 <b:container>
 	    	<h2>Evénements</h2>
 	        <h:dataTable value="#{evenementController.doListEvent()}" var="event"
 	    			styleClass="order-table"

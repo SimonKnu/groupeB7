@@ -5,34 +5,13 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:b="http://bootsfaces.net/ui">
     <h:head>
-        <title>Administration</title>
+        <title>Création d'un événement</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"></link>
     </h:head>
     
     <h:body style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px;">
-    
-    	<h2>Administrateur</h2>
-        <h:dataTable value="#{evenementController.doListEvent()}" var="event"
-    			styleClass="order-table"
-    			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row"
-    		>
-    		<h:column>
-    			<h:form>
-    				<h:commandButton value="X" action="#{evenementController.deleteEvent(event)}"></h:commandButton>
-    			</h:form>
-    		</h:column>
-    		<h:column>
-    			<h:outputLabel value="#{event.nom}"></h:outputLabel>
-    		</h:column>		
-    		<h:column>
-    			<h:form>
-    				<h:commandButton value="Plus de détails" action="#{evenementController.goDetailEvent(event)}"></h:commandButton>
-    			</h:form>
-    		</h:column>
-    	</h:dataTable>
-  
-  		<h:form enctype="multipart/form-data">
+    	
+		<h:form enctype="multipart/form-data">
 			<h4>Ajouter un évènement</h4>
 				<h:panelGrid columns="2">	
 					<h:outputLabel value="Nom :"></h:outputLabel>
@@ -54,6 +33,5 @@
 					<h:commandButton class="boutton" value="Créer un événement" action="#{evenementController.createEvent()}"></h:commandButton>
 			</h:panelGrid>
 		</h:form>
-
     </h:body>
 </html>
