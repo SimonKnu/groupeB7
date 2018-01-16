@@ -3,31 +3,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui"
-      xmlns:t="http://myfaces.apache.org/tomahawk">
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <title>Project Name</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"></link>
     </h:head>
     
     <h:body style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px;">
-    	<h:form>
-         	<fieldset>
-	         	<legend>Inscription</legend>
-		   		
-		   		<h:outputLabel value = "Login" />
-		   		<h:inputText value="#{personneController.login}" required="true"></h:inputText><br/>
-		  		<h:outputLabel value = "Mot de passe" />
-		  		<h:inputSecret value="#{personneController.password}" required="true"></h:inputSecret><br/>
-		    	<h:outputLabel value = "Mail" />
-		    	<h:inputText value="#{personneController.mail}" required="true"></h:inputText><br/>
-		    	<h:outputLabel value = "Nom" />
-		    	<h:inputText value="#{personneController.nom}" required="true"></h:inputText><br/>
-		    	<h:outputLabel value = "Prénom" />
-		    	<h:inputText value="#{personneController.prenom}" required="true"></h:inputText><br/>
-		    	<b:dateTimePicker ></b:dateTimePicker>
-		   		<h:commandButton value="Confirmer" action="#{personneController.createUtilisateur()}"></h:commandButton>
-		   	</fieldset>
-	   	</h:form>
+	   	<legend>Inscription</legend>
+	   	<h:form inline="true">
+		  <h:panelGrid columns="1" cellpadding="7">
+		    <b:inputText value="#{personneController.login}" label="Login" labelStyle="width:80px;"></b:inputText>
+		    <b:inputSecret  value="#{personneController.password}" label="Mot de passe" labelStyle="width:80px;"></b:inputSecret>
+		    <b:inputText value="#{personneController.mail}" label="Mail" labelStyle="width:80px;"></b:inputText>
+		    <b:inputText value="#{personneController.nom}" label="Nom" labelStyle="width:80px;"></b:inputText>
+		    <b:inputText value="#{personneController.prenom}" label="Prénom" labelStyle="width:80px;"></b:inputText>
+		    <b:datepicker label="Date" showWeek="true" firstDay="1" value="#{personneController.dateNaiss}" required="true"></b:datepicker>
+		    <b:commandButton value="Confirmer" action="#{personneController.createUtilisateur()}"></b:commandButton>
+		  </h:panelGrid>
+		</h:form>
     </h:body>
 </html>

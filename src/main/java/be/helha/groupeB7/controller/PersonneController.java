@@ -34,7 +34,7 @@ public class PersonneController {
 	}
 	
 	public void createUtilisateur() {
-		Utilisateur utilisateur = new Utilisateur(this.login, this.password, this.nom, this.prenom, null, this.mail);
+		Utilisateur utilisateur = new Utilisateur(this.login, this.password, this.nom, this.prenom, this.dateNaiss, this.mail);
 		ejb.addPersonne(utilisateur);
 		resetUtilisateur();
 	}
