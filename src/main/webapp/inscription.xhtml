@@ -3,28 +3,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:t="http://myfaces.apache.org/tomahawk">
     <h:head>
         <title>Project Name</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"></link>
     </h:head>
     
     <h:body style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px;">
-    	<h2>Inscription</h2>
     	<h:form>
-    		Login:
-    		<h:inputText value="#{personneController.login}"></h:inputText><br/>
-    		Mot de passe:
-    		<h:inputSecret value="#{personneController.password}"></h:inputSecret><br/>
-    		Mail:
-    		<h:inputText value="#{personneController.mail}"></h:inputText><br/>
-    		Nom:
-    		<h:inputText value="#{personneController.nom}"></h:inputText><br/>
-    		Prénom:
-    		<h:inputText value="#{personneController.prenom}"></h:inputText><br/>
-    		<h:commandButton value="Confirmer" action="#{personneController.createUtilisateur()}"></h:commandButton>
-    	</h:form>
-  
-
+         	<fieldset>
+	         	<legend>Inscription</legend>
+		   		
+		   		<h:outputLabel value = "Login" />
+		   		<h:inputText value="#{personneController.login}" required="true"></h:inputText><br/>
+		  		<h:outputLabel value = "Mot de passe" />
+		  		<h:inputSecret value="#{personneController.password}" required="true"></h:inputSecret><br/>
+		    	<h:outputLabel value = "Mail" />
+		    	<h:inputText value="#{personneController.mail}" required="true"></h:inputText><br/>
+		    	<h:outputLabel value = "Nom" />
+		    	<h:inputText value="#{personneController.nom}" required="true"></h:inputText><br/>
+		    	<h:outputLabel value = "Prénom" />
+		    	<h:inputText value="#{personneController.prenom}" required="true"></h:inputText><br/>
+		   		<h:commandButton value="Confirmer" action="#{personneController.createUtilisateur()}"></h:commandButton>
+		   	</fieldset>
+	   	</h:form>
     </h:body>
 </html>
