@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>A propos</title>
+    </h:head>
+    
+    <h:body style="padding-top: 50px;">
+    	<b:navBar brand="MSF" brandHref="index.xhtml" inverse="true" fixed="top">
+  			<b:navbarLinks>
+   				<b:navLink value="Inscription" href="#{navigationController.goInscription()}"></b:navLink>
+   				<b:navLink value="Créer son événement" href="#{navigationController.goCreer()}"></b:navLink>
+   				<b:navLink value="A propos" href="#{navigationController.goAbout()}"></b:navLink>
+   				<b:navLink value="Mes événements" href="#{navigationController.goMyEvents()}"></b:navLink>
+   				<b:navLink value="Administration" href="#{navigationController.goAdmin()}"></b:navLink>
+    		</b:navbarLinks>
+    		<b:navbarLinks pull="right">
+    			<b:navLink value="Connexion" href="#"></b:navLink>
+    		</b:navbarLinks>
+        </b:navBar>
+    </h:body>
+</html>

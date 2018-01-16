@@ -3,24 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:b="http://bootsfaces.net/ui"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Evenements</title>
      </h:head>
     
     <h:body style="padding-top: 60px;">
-    	<b:navBar brand="MSF" brandHref="index.xhtml" inverse="true" fixed="top">
-  			<b:navbarLinks>
-   				<b:navLink value="Inscription" href="#{navigationController.goInscription()}"></b:navLink>
-   				<b:navLink value="Créer son événement" href="#{navigationController.goCreer()}"></b:navLink>
-   				<b:navLink value="A propos" href="#{navigationController.goAbout()}"></b:navLink>
-   				<b:navLink value="Mes événements" href="#{navigationController.goMyEvents()}"></b:navLink>
-   				<b:navLink value="Administration" href="#{navigationController.goAdmin()}"></b:navLink>
-    		</b:navbarLinks>
-    		<b:navbarLinks pull="right">
-    			<b:navLink value="Connexion" href="#"></b:navLink>
-    		</b:navbarLinks>
-        </b:navBar>
+    	<ui:include src="/navbar.xhtml"/>
         <b:container>
 			<h:form>
 		  		<b:dataTable value="#{evenementController.doListEvent()}" var="event"  paginated="false" searching='true'>

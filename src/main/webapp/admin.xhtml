@@ -10,7 +10,7 @@
     </h:head>
     
     <h:body style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px;">
-    
+    	<ui:include src="/navbar.xhtml"/>
     	<h2>Administrateur</h2>
         <h:dataTable value="#{evenementController.doListEvent()}" var="event"
     			styleClass="order-table"
