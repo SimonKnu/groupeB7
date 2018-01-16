@@ -12,7 +12,14 @@
     <h:body style="padding-top: 50px;">
     	<ui:include src="/navbar.xhtml"/>
         <b:container>
-           
+           	<h4>Connexion</h4>
+			<h:form inline="true">
+			<h:panelGrid columns="1" cellpadding="7">
+				<b:inputText label="Login" required="true"></b:inputText>
+				<b:inputSecret label="Mot de passe" required="true"></b:inputSecret>
+				<b:commandButton value="Se connecter"></b:commandButton>
+			</h:panelGrid>
+		</h:form>
         </b:container>
     </h:body>
 </html>
