@@ -8,6 +8,7 @@
 		<class>be.helha.groupeB7.entities.Utilisateur</class>	
 		<class>be.helha.groupeB7.entities.Administrateur</class>	
 		<class>be.helha.groupeB7.entities.Adresse</class>
+		<class>be.helha.groupeB7.entities.Image</class>
 		<class>be.helha.groupeB7.entities.Evenement</class>						
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 	
@@ -21,6 +22,7 @@
 		<class>be.helha.groupeB7.entities.Utilisateur</class>	
 		<class>be.helha.groupeB7.entities.Administrateur</class>	
 		<class>be.helha.groupeB7.entities.Adresse</class>
+		<class>be.helha.groupeB7.entities.Image</class>
 		<class>be.helha.groupeB7.entities.Evenement</class>			
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 	

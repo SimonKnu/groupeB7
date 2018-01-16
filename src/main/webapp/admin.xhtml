@@ -10,13 +10,17 @@
     </h:head>
     
     <h:body style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px;">
-    	<h2>Evénements</h2>
+    	<h2>Administrateur</h2>
         <h:dataTable value="#{evenementController.doListEvent()}" var="event"
     			styleClass="order-table"
     			headerClass="order-table-header"
     			rowClasses="order-table-odd-row,order-table-even-row"
     		>
-
+    		<h:column>
+    			<h:form>
+    				<h:commandButton value="X" action="#{evenementController.deleteEvent(event)}"></h:commandButton>
+    			</h:form>
+    		</h:column>
     		<h:column>
     			<h:outputLabel value="#{event.nom}"></h:outputLabel>
     		</h:column>		
@@ -26,9 +30,28 @@
     			</h:form>
     		</h:column>
     	</h:dataTable>
-  	
-		<h:form>
-    		<h:commandButton value="Admin" action="#{personneController.goAdmin()}"></h:commandButton>
+  
+  		<h:form>
+			<h4>Ajouter un évènement</h4>
+				<h:panelGrid columns="2">	
+					<h:outputLabel value="Nom :"></h:outputLabel>
+					<h:inputText value="#{evenementController.nom}"></h:inputText>
+					
+					<h:outputLabel value="Lieu :"></h:outputLabel>
+					<h:inputText value="#{evenementController.lieu}"></h:inputText>
+					
+					<h:outputLabel value="Description :"></h:outputLabel>
+					<h:inputText value="#{evenementController.description}"></h:inputText>
+					
+					<h:outputLabel value="Date de début :"></h:outputLabel>
+					<h:inputText value="#{evenementController.dateDeb}"></h:inputText>
+					
+					<h:outputLabel value="Date de fin :"></h:outputLabel>
+					<h:inputText value="#{evenementController.dateFin}"></h:inputText>
+					
+					<h:commandButton class="boutton" value="Créer un événement" action="#{evenementController.createEvent()}"></h:commandButton>
+			</h:panelGrid>
 		</h:form>
+
     </h:body>
 </html>

@@ -23,7 +23,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 		<display-name>Sécurité api</display-name>
 		<web-resource-collection>
 			<web-resource-name>Secure list</web-resource-name>
-			<url-pattern>/list.xhtml</url-pattern>
+			<url-pattern>/admin.xhtml</url-pattern>
 			<http-method>GET</http-method>
 			<http-method>POST</http-method>
 			<http-method>DELETE</http-method>
