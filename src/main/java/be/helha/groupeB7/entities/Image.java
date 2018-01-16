@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import com.mysql.jdbc.Blob;
 
@@ -15,8 +16,9 @@ public class Image implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String imageName;
-	//private byte[] imageBlob;
 	
+	@Lob
+	private byte[] image;
 	
 	
 	public Image() {

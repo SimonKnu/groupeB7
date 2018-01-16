@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import be.helha.groupeB7.controller.EvenementController;
 import be.helha.groupeB7.entities.Administrateur;
 import be.helha.groupeB7.entities.Adresse;
 import be.helha.groupeB7.entities.Evenement;
@@ -21,8 +22,8 @@ public class MainData {
 		
 		Administrateur admin = new Administrateur("admin","helha","yorick-1996@hotmail.com");
 		
-		Evenement event1 = new Evenement("Soleil","Soignies","Descritiondusoleilàsoignies",new Date(),new Date());
-		Evenement event2 = new Evenement("Lune","Mars","Descriptionmarsàlune",new Date(),new Date());
+		Evenement event1 = new Evenement("Soleil","Soignies","Descritiondusoleilàsoignies",new Date(),new Date(), EvenementController.readFile("C:\\\\Users\\\\simon\\\\OneDrive\\\\Pictures\\\\Trash\\\\image.jpg"));
+		Evenement event2 = new Evenement("Lune","Mars","Descriptionmarsàlune",new Date(),new Date(), EvenementController.readFile("C:\\\\Users\\\\simon\\\\OneDrive\\\\Pictures\\\\Trash\\\\image.jpg"));
 		
 		Adresse add1 = new Adresse("ad1", "1", 1111, "soignies");
 		Adresse add2 = new Adresse("ad2", "2", 2222, "soignies");
