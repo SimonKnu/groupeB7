@@ -17,4 +17,8 @@ public class PersonneController {
 	public String goAdmin() {
 		return "admin.xhtml?faces-redirect=true";
 	}
+	
+	public String goInscription() {
+		return "inscription.xhtml";
+	}
 }
