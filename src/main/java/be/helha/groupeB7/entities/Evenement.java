@@ -47,8 +47,6 @@ public class Evenement {
 		this.couverture = couverture;
 	}
 	
-	
-	
 	public int getId() {
 		return id;
 	}
