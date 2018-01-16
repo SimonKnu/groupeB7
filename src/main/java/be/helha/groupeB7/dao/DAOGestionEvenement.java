@@ -14,6 +14,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import be.helha.groupeB7.entities.Evenement;
+import be.helha.groupeB7.entities.Utilisateur;
 import be.helha.groupeB7.util.Tools;
 
 @Stateless
@@ -26,6 +27,14 @@ public class DAOGestionEvenement {
 	public List<Evenement> getEvents(){
 		
 		Query q = em.createQuery("SELECT e FROM Evenement e");
+		
+		return q.getResultList();
+		
+	}
+	
+	public List<Evenement> getUserEvent(Utilisateur u){
+		
+		Query q = em.createQuery("SELECT p.events FROM Personne p JOIN p.events pers  WHERE pers.id = u.id");
 		
 		return q.getResultList();
 		
