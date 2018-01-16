@@ -8,7 +8,7 @@
         <title>Details</title>
     </h:head>
     
-    <h:body style="padding-left:50px; padding-top: 60px;">
+    <h:body style="padding-top: 60px;">
     	<b:navBar brand="MSF" brandHref="index.xhtml" inverse="true" fixed="top">
   			<b:navbarLinks>
    				<b:navLink value="Inscription" href="#{navigationController.goInscription()}"></b:navLink>
@@ -20,12 +20,14 @@
         </b:navBar>
         <b:container>
 	    	<h1>#{evenementController.event.nom}</h1>
+	    	<h4><b:icon name="calendar"/><i> #{evenementController.event.dateDeb} --- #{evenementController.event.dateFin}</i></h4>
 	    	<b:row>
                 <b:column col-md="4">
                    <img src="data:image/jpg;base64,#{evenementController.event.couverture}"></img>
                 </b:column>
                 <b:column col-md="8">
-                    #{evenementController.event.description}
+                	<p><b:icon name="pushpin"/>	#{evenementController.event.lieu}</p>
+                    <p>#{evenementController.event.description}</p>
                 </b:column>
             </b:row>
   		</b:container>
