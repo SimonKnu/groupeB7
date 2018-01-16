@@ -10,7 +10,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"></link>
     </h:head>
     
-    <h:body style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px;">
+    <h:body>
+    	<b:navBar brand="Brand" brandHref="#">
+  			<b:navbarLinks>
+   				<b:navLink value="Evénement" href="#"></b:navLink>
+    			<b:navLink value="Link" href="#"></b:navLink>
+    		</b:navbarLinks>
+        </b:navBar>
+        <b:container>
     	<h2>Evénements</h2>
         <h:dataTable value="#{evenementController.doListEvent()}" var="event"
     			styleClass="order-table"
@@ -37,5 +44,6 @@
 		<h:form>
     		<h:commandButton value="Inscription" action="#{personneController.goInscription()}"></h:commandButton>
 		</h:form>
+		</b:container>
     </h:body>
 </html>
