@@ -8,7 +8,7 @@
         <title>Evenements</title>
      </h:head>
     
-    <h:body style="padding-top: 50px;">
+    <h:body style="padding-top: 60px;">
     	<b:navBar brand="MSF" brandHref="index.xhtml" inverse="true" fixed="top">
   			<b:navbarLinks>
    				<b:navLink value="Inscription" href="#{navigationController.goInscription()}"></b:navLink>
@@ -19,25 +19,19 @@
     		</b:navbarLinks>
         </b:navBar>
         <b:container>
-	    	<h2>Evénements</h2>
-	        <h:dataTable value="#{evenementController.doListEvent()}" var="event"
-	    			styleClass="order-table"
-	    			headerClass="order-table-header"
-	    			rowClasses="order-table-odd-row,order-table-even-row"
-	    		>
-	
-	    		<h:column>
-	    			<h:outputLabel value="#{event.nom}"></h:outputLabel>
-	    		</h:column>	
-	    		<h:column>
-	    			<img src="data:image/jpg;base64,#{event.couverture}"></img>
-	    		</h:column>		
-	    		<h:column>
-	    			<h:form>
-	    				<h:commandButton value="Plus de détails" action="#{evenementController.goDetailEvent(event)}"></h:commandButton>
-	    			</h:form>
-	    		</h:column>
-	    	</h:dataTable>
+			<h:form>
+		  		<b:dataTable value="#{evenementController.doListEvent()}" var="event"  paginated="false" searching='true'>
+		   			<b:dataTableColumn style="width:90%;">
+			   			<f:facet name="header">
+				        	Evenement
+				     	</f:facet>
+		     			<h4>#{event.nom}</h4>
+		     			<p><img src="data:image/jpg;base64,#{event.couverture}"></img></p>
+		     			<b:commandButton value="Plus de détails" icon="plus" action="#{evenementController.goDetailEvent(event)}"></b:commandButton>
+		   			</b:dataTableColumn>
+		   			<b:dataTableColumn value="#{event.dateDeb}"  label="Date"></b:dataTableColumn>
+		    	</b:dataTable>
+			</h:form>
 	    	
 		</b:container>
     </h:body>
