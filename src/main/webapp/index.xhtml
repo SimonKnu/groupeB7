@@ -11,38 +11,35 @@
     </h:head>
     
     <h:body>
-    	<b:navBar brand="Brand" brandHref="#">
+    	<b:navBar>
   			<b:navbarLinks>
    				<b:navLink value="Inscription" href="#{personneController.goInscription()}"></b:navLink>
     		</b:navbarLinks>
         </b:navBar>
         <b:container>
-    	<h2>Evénements</h2>
-        <h:dataTable value="#{evenementController.doListEvent()}" var="event"
-    			styleClass="order-table"
-    			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row"
-    		>
-
-    		<h:column>
-    			<h:outputLabel value="#{event.nom}"></h:outputLabel>
-    		</h:column>	
-    		<h:column>
-    			<img src="data:image/jpg;base64,#{event.couverture}"></img>
-    		</h:column>		
-    		<h:column>
-    			<h:form>
-    				<h:commandButton value="Plus de détails" action="#{evenementController.goDetailEvent(event)}"></h:commandButton>
-    			</h:form>
-    		</h:column>
-    	</h:dataTable>
-  	
-		<h:form>
-    		<h:commandButton value="Admin" action="#{personneController.goAdmin()}"></h:commandButton>
-		</h:form>
-		<h:form>
-    		<h:commandButton value="Inscription" action="#{personneController.goInscription()}"></h:commandButton>
-		</h:form>
+	    	<h2>Evénements</h2>
+	        <h:dataTable value="#{evenementController.doListEvent()}" var="event"
+	    			styleClass="order-table"
+	    			headerClass="order-table-header"
+	    			rowClasses="order-table-odd-row,order-table-even-row"
+	    		>
+	
+	    		<h:column>
+	    			<h:outputLabel value="#{event.nom}"></h:outputLabel>
+	    		</h:column>	
+	    		<h:column>
+	    			<img src="data:image/jpg;base64,#{event.couverture}"></img>
+	    		</h:column>		
+	    		<h:column>
+	    			<h:form>
+	    				<h:commandButton value="Plus de détails" action="#{evenementController.goDetailEvent(event)}"></h:commandButton>
+	    			</h:form>
+	    		</h:column>
+	    	</h:dataTable>
+	  	
+			<h:form>
+	    		<h:commandButton value="Admin" action="#{personneController.goAdmin()}"></h:commandButton>
+			</h:form>
 		</b:container>
     </h:body>
 </html>
