@@ -19,7 +19,8 @@ public class Personne implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String login;
-	private String password;;
+	private String password;
+	private String mail;
 
 	@OneToMany(cascade=CascadeType.ALL)
 	private List<Evenement> events = new ArrayList<Evenement>();
@@ -28,9 +29,10 @@ public class Personne implements Serializable{
 	
 	public Personne() {
 	}
-	public Personne(String login, String password) {
+	public Personne(String login, String password, String mail) {
 		this.login = login;
 		this.password = password;
+		this.mail = mail;
 	}
 
 	
@@ -55,8 +57,13 @@ public class Personne implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
 	
 	public void ajouterEvent(Evenement event) {
 		if(!events.contains(event)) {

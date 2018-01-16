@@ -21,8 +21,8 @@ public class Utilisateur extends Personne implements Serializable{
 		
 	}
 	
-	public Utilisateur(String log, String mdp, String nom, String prenom, Date date) {
-		super(log,mdp);
+	public Utilisateur(String log, String mdp, String nom, String prenom, Date date, String mail) {
+		super(log,mdp,mail);
 		this.nom=nom;
 		this.prenom=prenom;
 		this.dateNais=date;

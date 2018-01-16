@@ -10,7 +10,20 @@
     </h:head>
     
     <h:body style="padding-left: 50px; padding-top: 20px; padding-bottom: 20px;">
-      
+    	<h2>Inscription</h2>
+    	<h:form>
+    		Login:
+    		<h:inputText value="#{personneController.login}"></h:inputText><br/>
+    		Mot de passe:
+    		<h:inputSecret value="#{personneController.password}"></h:inputSecret><br/>
+    		Mail:
+    		<h:inputText value="#{personneController.mail}"></h:inputText><br/>
+    		Nom:
+    		<h:inputText value="#{personneController.nom}"></h:inputText><br/>
+    		Prénom:
+    		<h:inputText value="#{personneController.prenom}"></h:inputText><br/>
+    		<h:commandButton value="Confirmer" action="#{personneController.createUtilisateur()}"></h:commandButton>
+    	</h:form>
   
 
     </h:body>

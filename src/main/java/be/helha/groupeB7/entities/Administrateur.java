@@ -11,8 +11,8 @@ public class Administrateur extends Personne implements Serializable{
 		
 	}
 	
-	public Administrateur(String log, String mdp) {
-		super(log,mdp);
+	public Administrateur(String log, String mdp, String mail) {
+		super(log,mdp,mail);
 	}
 	
 	public String toString() {

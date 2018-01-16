@@ -15,11 +15,11 @@ import be.helha.groupeB7.entities.Utilisateur;
 public class MainData {
 
 	public static void main(String[] args) {
-		Utilisateur user1 = new Utilisateur("user1","mdpU-1","Knu","Simon",new Date());
-		Utilisateur user2 = new Utilisateur("user2","mdpU-2","Romain","Simon2",new Date());
-		Utilisateur user3 = new Utilisateur("user","helha","Altares","Valentin",new Date());
+		Utilisateur user1 = new Utilisateur("user1","mdpU-1","Knu","Simon",new Date(),"Mail1");
+		Utilisateur user2 = new Utilisateur("user2","mdpU-2","Romain","Simon2",new Date(),"Mail2");
+		Utilisateur user3 = new Utilisateur("user","helha","Altares","Valentin",new Date(),"Mail3");
 		
-		Administrateur admin = new Administrateur("admin","helha");
+		Administrateur admin = new Administrateur("admin","helha","yorick-1996@hotmail.com");
 		
 		Evenement event1 = new Evenement("Soleil","Soignies","Descritiondusoleilàsoignies",new Date(),new Date());
 		Evenement event2 = new Evenement("Lune","Mars","Descriptionmarsàlune",new Date(),new Date());
