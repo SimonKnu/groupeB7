@@ -18,6 +18,7 @@ import javax.inject.Named;
 import javax.servlet.http.Part;
 
 import be.helha.groupeB7.entities.Evenement;
+import be.helha.groupeB7.entities.Personne;
 import be.helha.groupeB7.sessionejb.GestionEvenementEJB;
 import be.helha.groupeB7.util.Tools;
 
@@ -40,6 +41,12 @@ public class EvenementController {
 	
 	public List<Evenement> doListEvent(){
 		return gestionEvenementEJB.selectAll();
+	}
+	
+	public List<Evenement> doListEventUser(Personne p){
+		
+		return gestionEvenementEJB.selectUserEvent(p);
+		
 	}
 	
 	public String goDetailEvent(Evenement event) {
