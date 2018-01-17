@@ -34,10 +34,6 @@ public class NavigationController {
 	    session.invalidate();
 		return "index.xhtml?faces-redirect=true";
 	}
-	
-	public String goMonCompte() {
-		return "monCompte.xhtml?faces-redirect=true";
-	}
 
 
 }

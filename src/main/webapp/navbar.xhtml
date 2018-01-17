@@ -19,7 +19,7 @@
     		</b:navbarLinks>
     		<b:navbarLinks pull="right">
     		    <b:form>
-    		    	<b:commandButton look="link" value="Mon compte" action="#{navigationController.goMonCompte()}" rendered="#{connexionController.isConnect()}"></b:commandButton>
+    		    	<b:commandButton look="link" value="Mon compte" action="#{connexionController.goMonCompte()}" rendered="#{connexionController.isConnect()}"></b:commandButton>
     		    	<b:commandButton look="link" value="Se déconnecter" action="#{navigationController.deconnxion()}" rendered="#{connexionController.isConnect()}"></b:commandButton>
     		    </b:form>
 			 	<b:navLink value="Connexion" href="connexion.xhtml"  rendered="#{connexionController.isConnect() == false}"></b:navLink>
