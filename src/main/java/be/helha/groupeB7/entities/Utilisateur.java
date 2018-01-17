@@ -1,10 +1,13 @@
 package be.helha.groupeB7.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -15,6 +18,10 @@ public class Utilisateur extends Personne implements Serializable{
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	private Adresse domicile;
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<Evenement> events = new ArrayList<Evenement>();
+	
 	
 	
 	public Utilisateur() {
@@ -59,6 +66,13 @@ public class Utilisateur extends Personne implements Serializable{
 	}
 	
 	
+	
+	
+	public void ajouterEvent(Evenement event) {
+		if(!events.contains(event)) {
+			events.add(event);
+		}
+	}
 
 	public String toString() {
 		return "User "+super.toString();
