@@ -27,6 +27,26 @@ public class ConnexionController implements Serializable {
 	@EJB
 	private GestionPersonneEJB ejb;
 	
+	@EJB
+	private GestionPersonneEJB gestionPersonneEJB;
+	
+	public void updatePersonne() {
+		if (user instanceof Utilisateur) {
+			user.setLogin(login);
+			user.setPassword(password);
+			user.setMail(mail);
+			((Utilisateur) user).setNom(nom);
+			((Utilisateur) user).setPrenom(prenom);
+			((Utilisateur) user).setDateNais(dateNais);
+			gestionPersonneEJB.updatePersonne(user);
+		}else if (user instanceof Administrateur) {
+			user.setLogin(login);
+			user.setPassword(password);
+			user.setMail(mail);
+			gestionPersonneEJB.updatePersonne(user);
+		}
+	}
+	
 	public void savePersonne() {
 		if(isConnect() == true) {
 			if(user==null) {

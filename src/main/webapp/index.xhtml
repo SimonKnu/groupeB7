@@ -14,7 +14,7 @@
         <b:container>
 			<h:form>
 		  		<b:dataTable value="#{evenementController.doListEventConfirm(true)}" var="event"  paginated="false" searching='true'>
-		   			<b:dataTableColumn style="width:90%;">
+		   			<b:dataTableColumn style="width:70%;">
 			   			<f:facet name="header">
 				        	Evénement
 				     	</f:facet>
@@ -22,7 +22,7 @@
 		     			<p><img src="data:image/jpg;base64,#{event.couverture}" style="max-width: 500px;" class="img-thumbnail"></img></p>
 		     			<b:commandButton value="Plus de détails" icon="plus" action="#{evenementController.goDetailEvent(event)}"></b:commandButton>
 		   			</b:dataTableColumn>
-		   			<b:dataTableColumn value="#{event.lieu}"  label="Lieu"></b:dataTableColumn>
+		   			<b:dataTableColumn value="#{event.lieu}"  label="Lieu" style="width:15%;"></b:dataTableColumn>
 		   			<b:dataTableColumn value="#{event.dateDeb}"  label="Date"></b:dataTableColumn>
 		    	</b:dataTable>
 			</h:form>

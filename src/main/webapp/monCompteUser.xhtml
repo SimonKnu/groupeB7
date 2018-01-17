@@ -21,7 +21,7 @@
 					<b:inputText value="#{connexionController.nom}" label="Nom" required="true"></b:inputText>
 					<b:inputText value="#{connexionController.prenom}" label="Prénom" required="true"></b:inputText>
 					<b:datepicker value="#{connexionController.dateNais}" label="Date" showWeek="true" firstDay="1" required="true"></b:datepicker>
-					<b:commandButton value="Modifier" ></b:commandButton>
+					<b:commandButton class="boutton" value="Modifier"  action="#{connexionController.updatePersonne()}"></b:commandButton>
 				</h:panelGrid>
 			</h:form>
         </b:container>
