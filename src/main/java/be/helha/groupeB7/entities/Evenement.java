@@ -78,11 +78,15 @@ public class Evenement {
 		this.description = description;
 	}
 	
-	public String getDateDeb() {
+	public Date getDateDeb() {
+		return this.dateDeb;
+	}
+	
+/*	public String getDateDeb() {
 		SimpleDateFormat formater = null;
 		formater = new SimpleDateFormat("dd-MM-yy");
 		return formater.format(dateDeb);
-	}
+	}*/
 	
 	public void setDateDeb(Date dateDeb) {
 
@@ -90,11 +94,16 @@ public class Evenement {
 
 	}
 	
-	public String getDateFin() {
+	public Date getDateFin() {
+		return this.dateFin;
+	}
+	
+	/*public String getDateFin() {
 		SimpleDateFormat formater = null;
 		formater = new SimpleDateFormat("dd-MM-yy");
 		return formater.format(dateFin);
-	}
+	}*/
+	
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
