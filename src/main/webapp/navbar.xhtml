@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>A propos</title>
     </h:head>
@@ -17,8 +18,12 @@
    				<b:navLink value="A propos" href="#{navigationController.goAbout()}"></b:navLink>
     		</b:navbarLinks>
     		<b:navbarLinks pull="right">
-    			<b:navLink value="Connexion" href="connexion.xhtml"></b:navLink>
-    			<b:navLink value="Inscription" href="#{navigationController.goInscription()}"></b:navLink>
+    		    <b:form>
+    		    	<b:commandButton look="link" value="Se déconnecter" action="#{navigationController.deconnxion()}" rendered="#{navigationController.isConnect()}"></b:commandButton>
+    		    </b:form>
+			 	<b:navLink value="Connexion" href="connexion.xhtml"  rendered="#{navigationController.isConnect() == false}"></b:navLink>
+	    		<b:navLink value="Inscription" href="#{navigationController.goInscription()}"  rendered="#{navigationController.isConnect() == false}"></b:navLink>
+    		
     		</b:navbarLinks>
         </b:navBar>
     </h:body>

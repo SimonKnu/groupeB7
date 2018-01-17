@@ -12,14 +12,14 @@
     <h:body style="padding-top: 50px;">
     	<ui:include src="/navbar.xhtml"/>
         <b:container>
-           	<h4>Connexion</h4>
-			<h:form inline="true">
-			<h:panelGrid columns="1" cellpadding="2">
-				<b:inputText label="Login" required="true"></b:inputText>
-				<b:inputSecret label="Mot de passe" required="true"></b:inputSecret>
-				<b:commandButton value="Se connecter"></b:commandButton>
-			</h:panelGrid>
-		</h:form>
+	        <h4>Connexion</h4>  
+			<h:form inline="true" id="login" onsubmit="document.getElementById('login').action='j_security_check';" preprendId="false">
+				<h:panelGrid columns="1" cellpadding="2">
+					<b:inputText label="Login" required="true" id="j_username" name="j_username"></b:inputText>
+					<b:inputSecret label="Mot de passe" required="true" id="j_password"  name="j_password"></b:inputSecret>
+					<b:commandButton value="Se connecter"></b:commandButton>
+				</h:panelGrid>
+			</h:form>
         </b:container>
     </h:body>
 </html>

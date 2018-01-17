@@ -11,6 +11,7 @@ import be.helha.groupeB7.controller.EvenementController;
 import be.helha.groupeB7.entities.Administrateur;
 import be.helha.groupeB7.entities.Adresse;
 import be.helha.groupeB7.entities.Evenement;
+import be.helha.groupeB7.entities.UserGroup;
 import be.helha.groupeB7.entities.Utilisateur;
 
 public class MainData {
@@ -18,16 +19,21 @@ public class MainData {
 	public static void main(String[] args) {
 		Utilisateur user1 = new Utilisateur("user1","mdpU-1","Knu","Simon",new Date(),"Mail1");
 		Utilisateur user2 = new Utilisateur("user2","mdpU-2","Romain","Simon2",new Date(),"Mail2");
-		Utilisateur user3 = new Utilisateur("user","helha","Altares","Valentin",new Date(),"Mail3");
+		Utilisateur user3 = new Utilisateur("user3","helha","Altares","Valentin",new Date(),"Mail3");
 		
 		Administrateur admin = new Administrateur("admin","helha","yorick-1996@hotmail.com");
 		
-		Evenement event1 = new Evenement("Soleil","Soignies","Descritiondusoleilàsoignies",new Date(),new Date(), Tools.readFile("C:\\\\Users\\\\simon\\\\OneDrive\\\\Pictures\\\\Trash\\\\image.jpg"));
-		Evenement event2 = new Evenement("Lune","Mars","Descriptionmarsàlune",new Date(),new Date(), Tools.readFile("C:\\\\Users\\\\simon\\\\OneDrive\\\\Pictures\\\\Trash\\\\image.jpg"));
+		Evenement event1 = new Evenement("Soleil","Soignies","Descritiondusoleilàsoignies",new Date(),new Date(), Tools.readFile("C:\\\\Users\\\\Kista\\\\Pictures\\\\image.jpg"));
+		Evenement event2 = new Evenement("Lune","Mars","Descriptionmarsàlune",new Date(),new Date(), Tools.readFile("C:\\\\Users\\\\Kista\\\\Pictures\\\\image.jpg"));
 		
 		Adresse add1 = new Adresse("ad1", "1", 1111, "soignies");
 		Adresse add2 = new Adresse("ad2", "2", 2222, "soignies");
 		Adresse add3 = new Adresse("ad3", "3", 3333, "soignies");
+		
+		UserGroup userGroup1 = new UserGroup("user1", "user");
+		UserGroup userGroup2 = new UserGroup("user2", "user");
+		UserGroup userGroup3 = new UserGroup("user3", "user");
+		UserGroup adminGroup = new UserGroup("admin", "admin");
 		
 		user1.setDomicile(add1);
 		user2.setDomicile(add2);
@@ -49,6 +55,11 @@ public class MainData {
 			em.persist(user2);
 			em.persist(user3);
 			em.persist(admin);
+			
+			em.persist(userGroup1);
+			em.persist(userGroup2);
+			em.persist(userGroup3);
+			em.persist(adminGroup);
 		tx.commit();
 		em.clear();
 		em.close();

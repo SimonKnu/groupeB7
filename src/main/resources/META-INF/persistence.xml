@@ -9,7 +9,8 @@
 		<class>be.helha.groupeB7.entities.Administrateur</class>	
 		<class>be.helha.groupeB7.entities.Adresse</class>
 		<class>be.helha.groupeB7.entities.Image</class>
-		<class>be.helha.groupeB7.entities.Evenement</class>						
+		<class>be.helha.groupeB7.entities.Evenement</class>	
+		<class>be.helha.groupeB7.entities.UserGroup</class>							
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 	
 	</persistence-unit>
@@ -23,7 +24,8 @@
 		<class>be.helha.groupeB7.entities.Administrateur</class>	
 		<class>be.helha.groupeB7.entities.Adresse</class>
 		<class>be.helha.groupeB7.entities.Image</class>
-		<class>be.helha.groupeB7.entities.Evenement</class>			
+		<class>be.helha.groupeB7.entities.Evenement</class>		
+		<class>be.helha.groupeB7.entities.UserGroup</class>			
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 	
 		<properties>

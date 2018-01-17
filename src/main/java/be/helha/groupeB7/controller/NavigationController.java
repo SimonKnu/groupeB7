@@ -1,7 +1,9 @@
 package be.helha.groupeB7.controller;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.http.HttpSession;
 
 @Named
 @RequestScoped
@@ -27,4 +29,20 @@ public class NavigationController {
 		return "myEvents.xhtml?faces-redirect=true";
 	}
 	
+	public String deconnxion() {
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+	    session.invalidate();
+		return "index.xhtml?faces-redirect=true";
+	    
+	}
+	
+	public boolean isConnect() {
+		String name = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
+		System.out.println(name);
+		if(name != null) {
+	    	return true;
+	    }
+	    return false;
+	}
+
 }
