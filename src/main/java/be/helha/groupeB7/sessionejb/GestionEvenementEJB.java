@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 
 import be.helha.groupeB7.dao.DAOGestionEvenement;
 import be.helha.groupeB7.entities.Evenement;
+import be.helha.groupeB7.entities.Personne;
 import be.helha.groupeB7.entities.Utilisateur;
 
 @Stateless
@@ -44,9 +45,9 @@ public class GestionEvenementEJB implements IGestionEvenementEJBRemote{
 	}
 
 	@Override
-	public List<Evenement> selectUserEvent(Utilisateur u) {
+	public List<Evenement> selectUserEvent(Personne p) {
 		// TODO Auto-generated method stub
-		return dao.getUserEvent(u);
+		return dao.getUserEvent(p);
 	}
 
 }

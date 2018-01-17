@@ -25,6 +25,20 @@ public class DAOGestionPersonne {
 		
 	}
 	
+	public Personne getPersonne(String login) {
+		
+		Query q = em.createQuery("SELECT p FROM Personne p WHERE p.login = :login");
+		q.setParameter("login", login);
+		
+		List<Personne> personnes = q.getResultList();
+		
+		if(!personnes.isEmpty())
+			return personnes.get(0);
+		else
+			return null;
+		
+	}
+	
 	public boolean isDoublon(String login) {
 		
 		Query q = em.createQuery("SELECT p FROM Personne p WHERE p.login = :login");
@@ -41,7 +55,9 @@ public class DAOGestionPersonne {
 	
 	public Personne addPersonne(Personne p) {
 		
-		em.persist(p);
+		if(!this.isDoublon(p.getLogin()))
+			em.persist(p);
+		
 		return p;
 		
 	}

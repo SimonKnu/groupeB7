@@ -10,6 +10,7 @@ import be.helha.groupeB7.entities.Personne;
 public interface IGestionPersonneEJBRemote {
 	
 	public List<Personne> selectAll();
+	public Personne getPersonne(String login);
 	public Personne addPersonne(Personne p);
 	public Personne updatePersonne(Personne p);
 	public void deletePersonne(Personne p);

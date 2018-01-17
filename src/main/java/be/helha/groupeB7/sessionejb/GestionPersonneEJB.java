@@ -49,6 +49,12 @@ public class GestionPersonneEJB implements IGestionPersonneEJBRemote {
 		dao.deletePersonne(p);
 		
 	}
+
+	@Override
+	public Personne getPersonne(String login) {
+		// TODO Auto-generated method stub
+		return dao.getPersonne(login);
+	}
 	
 	
 
