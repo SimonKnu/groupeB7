@@ -13,16 +13,23 @@
     	<ui:include src="/navbar.xhtml"/>
     	<b:container>
 			<h:form>
+				<h4>Liste des évènements</h4>
 		  		<b:dataTable value="#{evenementController.doListEventUser(connexionController.user)}" var="event"  paginated="false" searching='true'>
-		   			<b:dataTableColumn style="width:90%;">
+		   			<b:dataTableColumn style="width:40%;" value="#{event.nom}"></b:dataTableColumn>
+		   			<b:dataTableColumn style="width:20%;">
 			   			<f:facet name="header">
-				        	Evénement
+				        	<b:icon name="calendar"/> Date
 				     	</f:facet>
-		     			<h4>#{event.nom}</h4>
-		     			<p><img src="data:image/jpg;base64,#{event.couverture}"></img></p>
-		     			<b:commandButton value="Plus de détails" icon="plus" action="#{evenementController.goDetailEvent(event)}"></b:commandButton>
+		     			#{event.dateDeb} --- #{event.dateFin}
 		   			</b:dataTableColumn>
-		   			<b:dataTableColumn value="#{event.dateDeb}"  label="Date"></b:dataTableColumn>
+		   			<b:dataTableColumn>
+			   			<f:facet name="header">
+				        	Action
+				     	</f:facet>
+		     			<b:commandButton icon="trash" action="#{evenementController.deleteEvent(event)}"></b:commandButton>
+		     			<b:commandButton icon="pencil" action="#{evenementController.goModificationEvent(event)}"></b:commandButton>
+		     			<b:commandButton value="Plus de détails" action="#{evenementController.goDetailEvent(event)}"></b:commandButton>
+		   			</b:dataTableColumn>
 		    	</b:dataTable>
 			</h:form>
 		</b:container>

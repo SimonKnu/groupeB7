@@ -15,6 +15,7 @@
     		<h2>Administrateur</h2>
     		<hr/>
 			<h:form>
+				<h4>Liste des évènements</h4>
 		  		<b:dataTable value="#{evenementController.doListEvent()}" var="event"  paginated="false" searching='true'>
 		   			<b:dataTableColumn style="width:40%;" value="#{event.nom}"></b:dataTableColumn>
 		   			<b:dataTableColumn style="width:20%;">
