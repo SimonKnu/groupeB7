@@ -10,7 +10,7 @@
     </h:head>
     
     <h:body style="padding-top: 50px;">
-    	<b:navBar brand="MSF" brandHref="index.xhtml" inverse="true" fixed="top">
+    	<b:navBar brand="MSF" brandHref="index.xhtml" onclick="#{connexionController.savePersonne()}" inverse="true" fixed="top">
   			<b:navbarLinks>		
    				<b:navLink value="Créer son événement" href="#{navigationController.goCreer()}"></b:navLink>
    				<b:navLink value="Mes événements" href="#{navigationController.goMyEvents()}"></b:navLink>
@@ -19,10 +19,10 @@
     		</b:navbarLinks>
     		<b:navbarLinks pull="right">
     		    <b:form>
-    		    	<b:commandButton look="link" value="Se déconnecter" action="#{navigationController.deconnxion()}" rendered="#{navigationController.isConnect()}"></b:commandButton>
+    		    	<b:commandButton look="link" value="Se déconnecter" action="#{navigationController.deconnxion()}" rendered="#{connexionController.isConnect()}"></b:commandButton>
     		    </b:form>
-			 	<b:navLink value="Connexion" href="connexion.xhtml"  rendered="#{navigationController.isConnect() == false}"></b:navLink>
-	    		<b:navLink value="Inscription" href="#{navigationController.goInscription()}"  rendered="#{navigationController.isConnect() == false}"></b:navLink>
+			 	<b:navLink value="Connexion" href="connexion.xhtml"  rendered="#{connexionController.isConnect() == false}"></b:navLink>
+	    		<b:navLink value="Inscription" href="#{navigationController.goInscription()}"  rendered="#{connexionController.isConnect() == false}"></b:navLink>
     		
     		</b:navbarLinks>
         </b:navBar>

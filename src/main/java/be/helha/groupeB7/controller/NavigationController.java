@@ -35,14 +35,6 @@ public class NavigationController {
 		return "index.xhtml?faces-redirect=true";
 	    
 	}
-	
-	public boolean isConnect() {
-		String name = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
-		System.out.println(name);
-		if(name != null) {
-	    	return true;
-	    }
-	    return false;
-	}
+
 
 }
