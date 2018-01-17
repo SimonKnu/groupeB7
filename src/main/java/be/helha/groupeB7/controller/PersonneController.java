@@ -56,14 +56,14 @@ public class PersonneController {
 		resetUtilisateur();
 	}
 	
-	public String createUserEvent(Personne p) {
+	public String createUserEvent(Utilisateur u) {
 		if(!nom.isEmpty() && !lieu.isEmpty() && !description.isEmpty() && !dateDeb.isEmpty() && !dateFin.isEmpty()) {
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			Evenement e;
 			try {
 				e = new Evenement(nom,lieu,description,formatter.parse(dateDeb),formatter.parse(dateFin), Tools.readImage(file.getInputStream()));
-				p.ajouterEvent(e);
-				ejb.updatePersonne(p);
+				u.ajouterEvent(e);
+				ejb.updatePersonne(u);
 				resetEvent();
 			} 
 			catch (ParseException e1) {
@@ -86,7 +86,7 @@ public class PersonneController {
 		this.dateFin="";
 	}
 	
-	public void addEvenementUser(Personne u, Evenement e) {
+	public void addEvenementUser(Utilisateur u, Evenement e) {
 		
 		u.ajouterEvent(e);
 		ejb.updatePersonne(u);
