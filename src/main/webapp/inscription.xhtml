@@ -17,7 +17,7 @@
 				<h:panelGrid columns="1" cellpadding="7">
 					<b:inputText value="#{personneController.login}" label="Login" required="true"></b:inputText>
 					<b:inputSecret  value="#{personneController.password}" label="Mot de passe" required="true"></b:inputSecret>
-					<b:inputText value="#{personneController.mail}" label="Mail" required="true"></b:inputText>
+					<b:inputText value="#{personneController.mail}" label="Mail" mask="email" required="true"></b:inputText>
 					<b:inputText value="#{personneController.nom}" label="Nom" required="true"></b:inputText>
 					<b:inputText value="#{personneController.prenom}" label="Prénom" required="true"></b:inputText>
 					<b:datepicker label="Date" showWeek="true" firstDay="1" value="#{personneController.dateNaiss}" required="true"></b:datepicker>

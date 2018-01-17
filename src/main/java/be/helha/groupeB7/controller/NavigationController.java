@@ -33,7 +33,6 @@ public class NavigationController {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 	    session.invalidate();
 		return "index.xhtml?faces-redirect=true";
-	    
 	}
 	
 	public String goMonCompte() {

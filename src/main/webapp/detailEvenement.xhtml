@@ -15,7 +15,7 @@
 	    	<h1>#{evenementController.event.nom}</h1>
 	    	<h4><b:icon name="calendar"/><i> #{evenementController.event.dateDeb} --- #{evenementController.event.dateFin}</i></h4>
 	    	<p><b:icon name="pushpin"/>	#{evenementController.event.lieu}</p>
-			<p><img src="data:image/jpg;base64,#{evenementController.event.couverture}"></img></p>
+			<p><img src="data:image/jpg;base64,#{evenementController.event.couverture}" class="img-thumbnail"></img></p>
 			<p>#{evenementController.event.description}</p>
   		</b:container>
     </h:body>

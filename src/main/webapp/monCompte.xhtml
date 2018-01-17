@@ -12,7 +12,18 @@
     <h:body style="padding-top: 60px;">
     	<ui:include src="/navbar.xhtml"/>
         <b:container>
-           <h1>Mon compte</h1>
+        	<h1>Mon compte</h1>
+          	<h:form inline="true">
+				<h:panelGrid columns="1" cellpadding="7">
+					<b:inputText value="" label="Login" required="true" disabled="true"></b:inputText>
+					<b:inputSecret  value="" label="Mot de passe" required="true"></b:inputSecret>
+					<b:inputText value="" label="Mail" required="true" mask="email"></b:inputText>
+					<b:inputText value="" label="Nom" required="true"></b:inputText>
+					<b:inputText value="" label="Prénom" required="true"></b:inputText>
+					<b:datepicker label="Date" showWeek="true" firstDay="1" value="" required="true"></b:datepicker>
+					<b:commandButton value="Modifier" ></b:commandButton>
+				</h:panelGrid>
+			</h:form>
         </b:container>
     </h:body>
 </html>
