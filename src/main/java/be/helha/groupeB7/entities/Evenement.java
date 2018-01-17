@@ -1,6 +1,8 @@
 package be.helha.groupeB7.entities;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
@@ -76,15 +78,22 @@ public class Evenement {
 		this.description = description;
 	}
 	
-	public Date getDateDeb() {
-		return dateDeb;
-	}
-	public void setDateDeb(Date dateDeb) {
-		this.dateDeb = dateDeb;
+	public String getDateDeb() {
+		SimpleDateFormat formater = null;
+		formater = new SimpleDateFormat("dd-MM-yy");
+		return formater.format(dateDeb);
 	}
 	
-	public Date getDateFin() {
-		return dateFin;
+	public void setDateDeb(Date dateDeb) {
+
+			this.dateDeb = dateDeb;
+
+	}
+	
+	public String getDateFin() {
+		SimpleDateFormat formater = null;
+		formater = new SimpleDateFormat("dd-MM-yy");
+		return formater.format(dateFin);
 	}
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
