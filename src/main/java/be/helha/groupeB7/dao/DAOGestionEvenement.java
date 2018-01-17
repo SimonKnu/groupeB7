@@ -34,7 +34,7 @@ public class DAOGestionEvenement {
 	
 	public List<Evenement> getUserEvent(Utilisateur u){
 		
-		Query q = em.createQuery("SELECT p.events FROM Personne p JOIN p.events pers  WHERE pers.id = u.id");
+		Query q = em.createQuery("SELECT p.events FROM Personne p JOIN p.events pers  WHERE pers.login = u.login");
 		
 		return q.getResultList();
 		
