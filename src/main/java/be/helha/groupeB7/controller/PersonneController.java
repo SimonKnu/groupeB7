@@ -56,12 +56,13 @@ public class PersonneController {
 		resetUtilisateur();
 	}
 	
-	public String createUserEvent(Utilisateur u) {
-		if(!nom.isEmpty() && !lieu.isEmpty() && !description.isEmpty() && !dateDeb.isEmpty() && !dateFin.isEmpty()) {
+	public String createUserEvent(Personne p) {
+		if(!name.isEmpty() && !lieu.isEmpty() && !description.isEmpty() && !dateDeb.isEmpty() && !dateFin.isEmpty()) {
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			Evenement e;
+			Utilisateur u = (Utilisateur) p;
 			try {
-				e = new Evenement(nom,lieu,description,formatter.parse(dateDeb),formatter.parse(dateFin), Tools.readImage(file.getInputStream()));
+				e = new Evenement(name,lieu,description,formatter.parse(dateDeb),formatter.parse(dateFin), Tools.readImage(file.getInputStream()));
 				u.ajouterEvent(e);
 				ejb.updatePersonne(u);
 				resetEvent();
@@ -148,4 +149,55 @@ public class PersonneController {
 	public void setDateNaiss(Date dateNaiss) {
 		this.dateNaiss = dateNaiss;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLieu() {
+		return lieu;
+	}
+
+	public void setLieu(String lieu) {
+		this.lieu = lieu;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getDateDeb() {
+		return dateDeb;
+	}
+
+	public void setDateDeb(String dateDeb) {
+		this.dateDeb = dateDeb;
+	}
+
+	public String getDateFin() {
+		return dateFin;
+	}
+
+	public void setDateFin(String dateFin) {
+		this.dateFin = dateFin;
+	}
+
+	public Part getFile() {
+		return file;
+	}
+
+	public void setFile(Part file) {
+		this.file = file;
+	}
+	
+	
+	
 }

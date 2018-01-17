@@ -42,12 +42,7 @@ public class ConnexionController implements Serializable {
 	
 	
 	public Personne getUser() {
-		if(user instanceof Utilisateur) {
-			return (Utilisateur) user;
-		}
-		else {
-			return (Administrateur) user;
-		}
+		return user;
 	}
 	public void setUser(Personne user) {
 		this.user = user;
