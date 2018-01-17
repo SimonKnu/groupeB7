@@ -33,10 +33,6 @@ public class NavigationController {
 		return "listEvent.xhtml?faces-redirect=true";
 	}
 	
-	public String goUnconfirmList() {
-		return "unconfirmEvent.xhtml?faces-redirect=true";
-	}
-	
 	public String deconnxion() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 	    session.invalidate();

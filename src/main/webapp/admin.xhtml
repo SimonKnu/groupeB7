@@ -16,7 +16,7 @@
     		<hr/>
     		<h:form>
 				<h4>Liste des évènements à confimer</h4>
-		  		<b:dataTable value="#{evenementController.doListEventConfirm(false)}" var="event"  paginated="false" searching='true'>
+		  		<b:dataTable value="#{evenementController.doListEventConfirm(false)}" var="event"  paginated="true" searching='true'>
 		   			<b:dataTableColumn style="width:40%;" value="#{event.nom}"></b:dataTableColumn>
 		   			<b:dataTableColumn style="width:20%;">
 			   			<f:facet name="header">
@@ -35,10 +35,12 @@
 		   			</b:dataTableColumn>
 		    	</b:dataTable>
 			</h:form>
+			<br/>
 			<hr/>
+			<br/>
 			<h:form>
 				<h4>Liste des évènements</h4>
-		  		<b:dataTable value="#{evenementController.doListEventConfirm(true)}" var="event"  paginated="false" searching='true'>
+		  		<b:dataTable value="#{evenementController.doListEventConfirm(true)}" var="event"  paginated="true" searching='true'>
 		   			<b:dataTableColumn style="width:40%;" value="#{event.nom}"></b:dataTableColumn>
 		   			<b:dataTableColumn style="width:20%;">
 			   			<f:facet name="header">
@@ -56,7 +58,9 @@
 		   			</b:dataTableColumn>
 		    	</b:dataTable>
 			</h:form>
+			<br/>
 			<hr/>
+			<br/>
 			<h:form enctype="multipart/form-data">
 				<h4>Ajouter un évènement</h4>
 				<h:panelGrid columns="1" cellpadding="7">	
