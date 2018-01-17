@@ -44,9 +44,11 @@ public class EvenementController {
 	}
 	
 	public List<Evenement> doListEventUser(Personne p){
-		
 		return gestionEvenementEJB.selectUserEvent(p);
-		
+	}
+	
+	public List<Evenement> doListEventConfirm(boolean confirm){
+		return gestionEvenementEJB.selectConfirmEvent(confirm);
 	}
 	
 	public String goDetailEvent(Evenement event) {
@@ -75,7 +77,7 @@ public class EvenementController {
 	public String createEvent() {
 		Evenement e;
 		try {
-			e = new Evenement(nom,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()));
+			e = new Evenement(nom,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()), true);
 			gestionEvenementEJB.addEvenement(e);
 		} 
 		catch (IOException e1) {

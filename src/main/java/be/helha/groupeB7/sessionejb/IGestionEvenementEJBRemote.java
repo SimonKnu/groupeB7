@@ -13,6 +13,7 @@ public interface IGestionEvenementEJBRemote {
 	
 	public List<Evenement> selectAll();
 	public List<Evenement> selectUserEvent(Personne p);
+	public List<Evenement> selectConfirmEvent(boolean confirm);
 	public Evenement addEvenement(Evenement e);
 	public Evenement updateEvenement(Evenement e);
 	public void deleteEvenement(Evenement e);

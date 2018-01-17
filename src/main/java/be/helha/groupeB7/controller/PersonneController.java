@@ -1,15 +1,26 @@
 package be.helha.groupeB7.controller;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.Part;
 
 import be.helha.groupeB7.entities.Evenement;
@@ -20,7 +31,7 @@ import be.helha.groupeB7.util.Tools;
 
 @Named
 @RequestScoped
-public class PersonneController {
+public class PersonneController{
 
 	@EJB
 	private GestionPersonneEJB ejb;
@@ -37,6 +48,10 @@ public class PersonneController {
 	private Date dateDeb;
 	private Date dateFin;
 	private Part file;
+	
+	//Email data
+	private final String email = "mettre ici votre compte gmail";
+	private final String passwordEmail = "Mettre ici votre mdp";
 	
 	public List<Personne> doListPersonne(){
 		return ejb.selectAll();
@@ -60,10 +75,11 @@ public class PersonneController {
 		Evenement e;
 		Utilisateur u = (Utilisateur)p;
 		try {
-			e = new Evenement(name,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()));
+			e = new Evenement(name,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()), false);
 			u.ajouterEvent(e);
 			ejb.updatePersonne(u);
 			this.resetEvent();
+			this.sendMail();
 		} 
 		catch (IOException e1) {
 			e1.printStackTrace();
@@ -92,6 +108,46 @@ public class PersonneController {
 		this.nom = "";
 		this.prenom = "";
 		this.mail = "";
+	}
+	
+	public void sendMail() {
+		
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+		
+		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+			
+			protected PasswordAuthentication getPasswordAuthentication() {
+				
+				return new PasswordAuthentication(email, passwordEmail);
+				
+			}
+			
+		});
+		
+		
+		try {
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("simon.romain2@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("simon.romain2@gmail.com"));
+			message.setSubject("Requête d'événement");
+			message.setText("Un utilisateur a envoyé une requête afin d'accepter la publication de son événement");
+			
+			Transport.send(message);
+			
+			System.out.println("Done");
+			
+		} catch (AddressException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 	}
 
 	public String getLogin() {
