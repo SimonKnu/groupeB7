@@ -17,10 +17,6 @@ public class NavigationController {
 		return "inscription.xhtml?faces-redirect=true";
 	}
 	
-	public String goCreer() {
-		return "formEvent.xhtml?faces-redirect=true";
-	}
-	
 	public String goAbout() {
 		return "about.xhtml?faces-redirect=true";
 	}

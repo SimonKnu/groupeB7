@@ -13,7 +13,7 @@
     	<ui:include src="/navbar.xhtml"/>
     	<b:container>
 			<h:form>
-				<h4>Liste des évènements</h4>
+				<h4>Liste de vos évènements</h4>
 		  		<b:dataTable value="#{evenementController.doListEventUser(connexionController.user)}" var="event"  paginated="false" searching='true'>
 		   			<b:dataTableColumn style="width:40%;" value="#{event.nom}"></b:dataTableColumn>
 		   			<b:dataTableColumn style="width:20%;">
@@ -31,6 +31,28 @@
 		     			<b:commandButton value="Plus de détails" action="#{evenementController.goDetailEvent(event)}"></b:commandButton>
 		   			</b:dataTableColumn>
 		    	</b:dataTable>
+			</h:form>
+			
+			<br/>
+			<hr/>
+			<br/>
+			
+			<h:form enctype="multipart/form-data">
+				<h4>Ajouter un évènement</h4>
+					<h:panelGrid columns="1" cellpadding="7">	
+						<b:inputText value="#{personneController.name}" label="Nom" required="true"></b:inputText>
+						
+						<b:inputText value="#{personneController.lieu}" label="Lieu" required="true"></b:inputText>
+						
+						<b:inputTextarea value="#{personneController.description}" label="Description" required="true"></b:inputTextarea>
+						
+						<b:datepicker label="Date de début" showWeek="true" firstDay="1" value="#{personneController.dateDeb}" required="true"></b:datepicker>
+			
+						<b:datepicker label="Date de fin" showWeek="true" firstDay="1" value="#{personneController.dateFin}" required="true"></b:datepicker>
+	
+						<h:inputFile value = "#{personneController.file}" label="Image de couverture"></h:inputFile><br/>
+						<b:commandButton class="boutton" value="Créer un événement" action="#{personneController.createUserEvent(connexionController.user)}"></b:commandButton>
+				</h:panelGrid>
 			</h:form>
 		</b:container>
     </h:body>
