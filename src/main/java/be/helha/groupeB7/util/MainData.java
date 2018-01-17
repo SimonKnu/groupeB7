@@ -39,10 +39,8 @@ public class MainData {
 		user2.setDomicile(add2);
 		user3.setDomicile(add3);
 		
-		user1.ajouterEvent(event1);
 		user1.ajouterEvent(event2);
 		user2.ajouterEvent(event1);
-		user3.ajouterEvent(event2);
 		
 		admin.ajouterEvent(event1);
 		admin.ajouterEvent(event2);
