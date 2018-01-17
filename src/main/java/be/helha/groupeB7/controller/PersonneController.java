@@ -62,7 +62,8 @@ public class PersonneController {
 			Evenement e;
 			Utilisateur u = (Utilisateur) p;
 			try {
-				e = new Evenement(name,lieu,description,formatter.parse(dateDeb),formatter.parse(dateFin), Tools.readImage(file.getInputStream()));
+				//e = new Evenement(name,lieu,description,formatter.parse(dateDeb),formatter.parse(dateFin), Tools.readImage(file.getInputStream()));
+				e = new Evenement(name,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()));
 				u.ajouterEvent(e);
 				ejb.updatePersonne(u);
 				resetEvent();
