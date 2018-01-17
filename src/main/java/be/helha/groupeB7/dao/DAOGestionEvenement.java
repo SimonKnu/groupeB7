@@ -42,6 +42,19 @@ public class DAOGestionEvenement {
 		
 	}
 	
+	public List<Evenement> getConfirmEvent(boolean confirm){
+		
+		Query q = em.createQuery("SELECT e FROM Evenement e WHERE e.confirm = :confirm");
+		
+		if(confirm)
+			q.setParameter("confirm", true);
+		else
+			q.setParameter("confirm", false);
+		
+		return q.getResultList();
+		
+	}
+	
 	public Evenement addEvent(Evenement e) {
 		
 		em.persist(e);

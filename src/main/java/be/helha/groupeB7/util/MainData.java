@@ -23,8 +23,8 @@ public class MainData {
 		
 		Administrateur admin = new Administrateur("admin","helha","yorick-1996@hotmail.com");
 		
-		Evenement event1 = new Evenement("Soleil","Soignies","Descritiondusoleilàsoignies",new Date(),new Date(), Tools.readFile("C:\\\\Users\\\\Simon\\\\Pictures\\\\image.jpg"));
-		Evenement event2 = new Evenement("Lune","Mars","Descriptionmarsàlune",new Date(),new Date(), Tools.readFile("C:\\\\Users\\\\Simon\\\\Pictures\\\\image3.jpg"));
+		Evenement event1 = new Evenement("Soleil","Soignies","Descritiondusoleilàsoignies",new Date(),new Date(), Tools.readFile("C:\\\\Users\\\\simon\\\\OneDrive\\\\Pictures\\\\Trash\\\\image2.jpg"), true);
+		Evenement event2 = new Evenement("Lune","Mars","Descriptionmarsàlune",new Date(),new Date(), Tools.readFile("C:\\\\Users\\\\simon\\\\OneDrive\\\\Pictures\\\\Trash\\\\image2.jpg"), true);
 		
 		Adresse add1 = new Adresse("ad1", "1", 1111, "soignies");
 		Adresse add2 = new Adresse("ad2", "2", 2222, "soignies");

@@ -29,6 +29,7 @@ public class Evenement {
 	private String description;
 	private Date dateDeb;
 	private Date dateFin;
+	private boolean confirm;
 	
 	@Lob
 	private byte[] couverture;
@@ -41,13 +42,14 @@ public class Evenement {
 	public Evenement() {
 		
 	}
-	public Evenement(String nom, String lieu, String description, Date dateDeb, Date dateFin, byte[] couverture) {
+	public Evenement(String nom, String lieu, String description, Date dateDeb, Date dateFin, byte[] couverture, boolean confirm) {
 		this.nom = nom;
 		this.lieu = lieu;
 		this.description=description;
 		this.dateDeb=dateDeb;
 		this.dateFin=dateFin;
 		this.couverture = couverture;
+		this.confirm = confirm;
 	}
 	
 	public int getId() {
@@ -89,8 +91,12 @@ public class Evenement {
 			this.dateDeb = dateDeb;
 	}
 	
-	
-	
+	public boolean isConfirm() {
+		return confirm;
+	}
+	public void setConfirm(boolean confirm) {
+		this.confirm = confirm;
+	}
 	public String getDateFin() {
 		SimpleDateFormat formater = null;
 		formater = new SimpleDateFormat("dd-MM-yy");

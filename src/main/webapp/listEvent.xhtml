@@ -13,7 +13,7 @@
     	<ui:include src="/navbar.xhtml"/>
         <b:container>
 			<h:form>
-		  		<b:dataTable value="#{evenementController.doListEventConfirm(true)}" var="event"  paginated="false" searching='true'>
+		  		<b:dataTable value="#{evenementController.doListEvent()}" var="event"  paginated="false" searching='true'>
 		   			<b:dataTableColumn style="width:90%;">
 			   			<f:facet name="header">
 				        	Evénement

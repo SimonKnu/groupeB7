@@ -50,4 +50,10 @@ public class GestionEvenementEJB implements IGestionEvenementEJBRemote{
 		return dao.getUserEvent(p);
 	}
 
+	@Override
+	public List<Evenement> selectConfirmEvent(boolean confirm) {
+		// TODO Auto-generated method stub
+		return dao.getConfirmEvent(confirm);
+	}
+
 }

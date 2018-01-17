@@ -71,6 +71,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 		<web-resource-collection>
 			<web-resource-name>SecureAdmin</web-resource-name>
 			<url-pattern>/admin.xhtml</url-pattern>
+			<url-pattern>/unconfirmEvent.xhtml</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>role_admin</role-name>
