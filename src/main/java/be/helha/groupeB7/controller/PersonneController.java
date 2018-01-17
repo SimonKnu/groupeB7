@@ -34,8 +34,8 @@ public class PersonneController {
 	private String name;
 	private String lieu;
 	private String description;
-	private String dateDeb;
-	private String dateFin;
+	private Date dateDeb;
+	private Date dateFin;
 	private Part file;
 	
 	public List<Personne> doListPersonne(){
@@ -57,24 +57,19 @@ public class PersonneController {
 	}
 	
 	public String createUserEvent(Personne p) {
-		if(!name.isEmpty() && !lieu.isEmpty() && !description.isEmpty() && !dateDeb.isEmpty() && !dateFin.isEmpty()) {
-			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-			Evenement e;
-			Utilisateur u = (Utilisateur) p;
-			try {
-				e = new Evenement(name,lieu,description,formatter.parse(dateDeb),formatter.parse(dateFin), Tools.readImage(file.getInputStream()));
-				u.ajouterEvent(e);
-				ejb.updatePersonne(u);
-				resetEvent();
-			} 
-			catch (ParseException e1) {
-				e1.printStackTrace();
-			} 
-			catch (IOException e1) {
-				e1.printStackTrace();
-			}
-			
+		Evenement e;
+		Utilisateur u = (Utilisateur)p;
+		try {
+			e = new Evenement(name,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()));
+			u.ajouterEvent(e);
+			ejb.updatePersonne(u);
+			this.resetEvent();
+		} 
+		catch (IOException e1) {
+			e1.printStackTrace();
 		}
+		resetEvent();
+
 		return "index.xhtml?faces-redirect=true";
 	}
 	
@@ -82,8 +77,6 @@ public class PersonneController {
 		this.name="";
 		this.lieu="";
 		this.description="";
-		this.dateDeb="";
-		this.dateFin="";
 	}
 	
 	public void addEvenementUser(Utilisateur u, Evenement e) {
@@ -173,19 +166,20 @@ public class PersonneController {
 		this.description = description;
 	}
 
-	public String getDateDeb() {
+
+	public Date getDateDeb() {
 		return dateDeb;
 	}
 
-	public void setDateDeb(String dateDeb) {
+	public void setDateDeb(Date dateDeb) {
 		this.dateDeb = dateDeb;
 	}
 
-	public String getDateFin() {
+	public Date getDateFin() {
 		return dateFin;
 	}
 
-	public void setDateFin(String dateFin) {
+	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
 
