@@ -47,7 +47,7 @@ public class GestionEvenementEJB implements IGestionEvenementEJBRemote{
 	@Override
 	public List<Evenement> selectUserEvent(Personne p) {
 		// TODO Auto-generated method stub
-		return dao.getUserEvent(u);
+		return dao.getUserEvent(p);
 	}
 
 }
