@@ -26,6 +26,7 @@ import be.helha.groupeB7.util.Tools;
 public class EvenementController {
 	private Evenement event;
 	
+	private int id;
 	private String nom;
 	private String lieu;
 	private String description;
@@ -43,8 +44,17 @@ public class EvenementController {
 	
 	public String goDetailEvent(Evenement event) {
 		this.event = event;
-		return "detailEvenement.xhtml";
-		
+		return "detailEvenement.xhtml";	
+	}
+	
+	public String goModificationEvent(Evenement event) {
+		this.id = event.getId();
+		this.nom = event.getNom();
+		this.lieu = event.getLieu();
+		this.description = event.getDescription();
+		this.dateDeb = event.getDateDeb();
+		this.dateFin = event.getDateFin();
+		return "modificationEvent.xhtml";	
 	}
 
 	public String createEvent() {

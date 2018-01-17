@@ -6,14 +6,14 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
-        <title>Création d'un événement</title>
+        <title>A propos</title>
     </h:head>
     
-    <h:body style="padding-top: 50px;">
+    <h:body style="padding-top: 60px;">
     	<ui:include src="/navbar.xhtml"/>
-    	<b:container>
-			<h:form enctype="multipart/form-data">
-				<h4>Ajouter un évènement</h4>
+        <b:container>
+           <h:form enctype="multipart/form-data">
+				<h4>Modifier un évènement</h4>
 					<h:panelGrid columns="1" cellpadding="7">	
 						<b:inputText value="#{evenementController.nom}" label="Nom" required="true"></b:inputText>
 						
@@ -25,10 +25,9 @@
 			
 						<b:datepicker label="Date de fin" showWeek="true" firstDay="1" value="#{evenementController.dateFin}" required="true"></b:datepicker>
 	
-						<h:inputFile value = "#{evenementController.file}" label="Image de couverture"></h:inputFile><br/>
-						<b:commandButton class="boutton" value="Créer un événement" action="#{evenementController.createEvent()}"></b:commandButton>
+						<b:commandButton class="boutton" value="Mofifier l'événement"></b:commandButton>
 				</h:panelGrid>
 			</h:form>
-		</b:container>
+        </b:container>
     </h:body>
 </html>
