@@ -78,45 +78,35 @@ public class Evenement {
 		this.description = description;
 	}
 	
-	public Date getDateDeb() {
-		return this.dateDeb;
-	}
+
 	
-/*	public String getDateDeb() {
+	public String getDateDeb() {
 		SimpleDateFormat formater = null;
 		formater = new SimpleDateFormat("dd-MM-yy");
 		return formater.format(dateDeb);
-	}*/
-	
+	}
 	public void setDateDeb(Date dateDeb) {
-
 			this.dateDeb = dateDeb;
-
 	}
 	
-	public Date getDateFin() {
-		return this.dateFin;
-	}
 	
-	/*public String getDateFin() {
+	
+	public String getDateFin() {
 		SimpleDateFormat formater = null;
 		formater = new SimpleDateFormat("dd-MM-yy");
 		return formater.format(dateFin);
-	}*/
-	
+	}
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
 	
-	
 	/*
+	
 	public void ajouterImageEvent(Image image) {
 		if(!images.contains(image)) {
 			images.add(image);
 		}
-	}
-	
-	*/
+	}*/
 	
 	public String getCouverture() {
 		byte[] tmp = Base64.getEncoder().encode(couverture);

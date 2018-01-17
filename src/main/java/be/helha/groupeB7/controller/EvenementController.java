@@ -31,8 +31,8 @@ public class EvenementController {
 	private String nom;
 	private String lieu;
 	private String description;
-	private String dateDeb;
-	private String dateFin;
+	private Date dateDeb;
+	private Date dateFin;
 	private Part file;
 
 
@@ -59,29 +59,30 @@ public class EvenementController {
 		this.nom = event.getNom();
 		this.lieu = event.getLieu();
 		this.description = event.getDescription();
-		this.dateDeb = event.getDateDeb();
-		this.dateFin = event.getDateFin();
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			this.dateDeb = formatter.parse(event.getDateDeb());
+			this.dateFin = formatter.parse(event.getDateFin());
+		} 
+		catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
 		return "modificationEvent.xhtml";	
 	}
 
 	public String createEvent() {
-		if(!nom.isEmpty() && !lieu.isEmpty() && !description.isEmpty() && !dateDeb.isEmpty() && !dateFin.isEmpty()) {
-			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-			Evenement e;
-			try {
-				e = new Evenement(nom,lieu,description,formatter.parse(dateDeb),formatter.parse(dateFin), Tools.readImage(file.getInputStream()));
-				gestionEvenementEJB.addEvenement(e);
-				resetEvent();
-			} 
-			catch (ParseException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
+		Evenement e;
+		try {
+			e = new Evenement(nom,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()));
+			gestionEvenementEJB.addEvenement(e);
+		} 
+		catch (IOException e1) {
+			e1.printStackTrace();
 		}
+		resetEvent();
+
 		return "index.xhtml?faces-redirect=true";
 	}
 	
@@ -90,8 +91,6 @@ public class EvenementController {
 		this.nom="";
 		this.lieu="";
 		this.description="";
-		this.dateDeb="";
-		this.dateFin="";
 	}
 	
 	public void deleteEvent(Evenement event) {
@@ -127,26 +126,23 @@ public class EvenementController {
 		this.description = description;
 	}
 
-	public String getDateDeb() {
+	public Date getDateDeb() {
 		return dateDeb;
 	}
-	public void setDateDeb(String dateDeb) {
+	public void setDateDeb(Date dateDeb) {
 		this.dateDeb = dateDeb;
 	}
 
-	public String getDateFin() {
+	public Date getDateFin() {
 		return dateFin;
 	}
-	public void setDateFin(String dateFin) {
+	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
-	
-	
 
 	public Part getFile() {
 		return file;
 	}
-
 	public void setFile(Part file) {
 		this.file = file;
 	}
