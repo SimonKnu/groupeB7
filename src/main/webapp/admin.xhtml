@@ -14,9 +14,31 @@
     	<b:container>
     		<h2>Administrateur</h2>
     		<hr/>
+    		<h:form>
+				<h4>Liste des évènements à confimer</h4>
+		  		<b:dataTable value="#{evenementController.doListEventConfirm(false)}" var="event"  paginated="false" searching='true'>
+		   			<b:dataTableColumn style="width:40%;" value="#{event.nom}"></b:dataTableColumn>
+		   			<b:dataTableColumn style="width:20%;">
+			   			<f:facet name="header">
+				        	<b:icon name="calendar"/> Date
+				     	</f:facet>
+		     			#{event.dateDeb} --- #{event.dateFin}
+		   			</b:dataTableColumn>
+		   			<b:dataTableColumn>
+			   			<f:facet name="header">
+				        	Action
+				     	</f:facet>
+		     			<b:commandButton icon="trash" action="#{evenementController.deleteEvent(event)}"></b:commandButton>
+		     			<b:commandButton icon="pencil" action="#{evenementController.goModificationEvent(event)}"></b:commandButton>
+		     			<b:commandButton value="Plus de détails" action="#{evenementController.goDetailEvent(event)}"></b:commandButton>
+		     			<b:commandButton value="Confirmer" action="#{evenementController.confirmer(event)}"></b:commandButton>
+		   			</b:dataTableColumn>
+		    	</b:dataTable>
+			</h:form>
+			<hr/>
 			<h:form>
 				<h4>Liste des évènements</h4>
-		  		<b:dataTable value="#{evenementController.doListEvent()}" var="event"  paginated="false" searching='true'>
+		  		<b:dataTable value="#{evenementController.doListEventConfirm(true)}" var="event"  paginated="false" searching='true'>
 		   			<b:dataTableColumn style="width:40%;" value="#{event.nom}"></b:dataTableColumn>
 		   			<b:dataTableColumn style="width:20%;">
 			   			<f:facet name="header">
