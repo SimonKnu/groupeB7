@@ -85,7 +85,14 @@ public class EvenementController {
 		return "index.xhtml?faces-redirect=true";
 	}
 	
-	
+
+	private void resetEvent() {
+		this.nom="";
+		this.lieu="";
+		this.description="";
+		this.dateDeb="";
+		this.dateFin="";
+	}
 	
 	public void deleteEvent(Evenement event) {
 		gestionEvenementEJB.deleteEvenement(event);
@@ -144,11 +151,4 @@ public class EvenementController {
 		this.file = file;
 	}
 
-	private void resetEvent() {
-		this.nom="";
-		this.lieu="";
-		this.description="";
-		this.dateDeb="";
-		this.dateFin="";
-	}
 }
