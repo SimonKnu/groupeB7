@@ -50,8 +50,8 @@ public class PersonneController{
 	private Part file;
 	
 	//Email data
-	private final String email = "mettre ici votre compte gmail";
-	private final String passwordEmail = "Mettre ici votre mdp";
+	private final String email = "TheFinalExam.contact@gmail.com";
+	private final String passwordEmail = "helha2017groupe20";
 	
 	public List<Personne> doListPersonne(){
 		return ejb.selectAll();
