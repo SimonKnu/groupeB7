@@ -70,6 +70,9 @@ public class ConnexionController implements Serializable {
 		}
 	}
 	
+	
+	
+	
 	public boolean isConnect() {
 		String name = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
 		System.out.println(name);
@@ -78,6 +81,24 @@ public class ConnexionController implements Serializable {
 	    }
 	    return false;
 	}
+	public boolean isBoolAdmin() {
+		if(user!= null) {
+			if(user instanceof Administrateur) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public boolean isBoolUser() {
+		if(user!= null) {
+			if(user instanceof Utilisateur) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
 	
 	public String goMonCompte() {
 		if (user instanceof Utilisateur) {

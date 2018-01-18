@@ -17,6 +17,13 @@ import be.helha.groupeB7.entities.Utilisateur;
 public class MainData {
 
 	public static void main(String[] args) {
+		
+		/*
+		 * Permet de reset la base de données avec des valeurs par défaut
+		 * Si executé -> Vérifier que dans la table "Personne_Evenement", la Foreign Key Option soit bien en "Cascade" 
+		 */
+		
+		
 		Utilisateur user1 = new Utilisateur("user1","mdpU-1","Knu","Simon",new Date(),"Mail1");
 		Utilisateur user2 = new Utilisateur("user2","mdpU-2","Romain","Simon2",new Date(),"Mail2");
 		Utilisateur user3 = new Utilisateur("user3","helha","Altares","Valentin",new Date(),"Mail3");
@@ -60,6 +67,7 @@ public class MainData {
 		em.clear();
 		em.close();
 		emf.close();
+		
 	}
 
 }

@@ -17,5 +17,4 @@ public interface IGestionEvenementEJBRemote {
 	public Evenement addEvenement(Evenement e);
 	public Evenement updateEvenement(Evenement e);
 	public void deleteEvenement(Evenement e);
-
 }

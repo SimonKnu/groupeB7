@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import be.helha.groupeB7.entities.Personne;
+import be.helha.groupeB7.entities.UserGroup;
 
 @Stateless
 @LocalBean
@@ -55,8 +56,12 @@ public class DAOGestionPersonne {
 	
 	public Personne addPersonne(Personne p) {
 		
-		if(!this.isDoublon(p.getLogin()))
+		if(!this.isDoublon(p.getLogin())) {
 			em.persist(p);
+			UserGroup uG = new UserGroup(p.getLogin(),"user");
+			em.persist(uG);
+		}
+		
 		
 		return p;
 		
@@ -72,6 +77,8 @@ public class DAOGestionPersonne {
 	public void deletePersonne(Personne p) {
 		
 		em.remove(em.merge(p));
+		UserGroup uG = new UserGroup(p.getLogin(),"user");
+		em.remove(em.merge(uG));
 		
 	}
 

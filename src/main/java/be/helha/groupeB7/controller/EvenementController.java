@@ -19,6 +19,7 @@ import javax.servlet.http.Part;
 
 import be.helha.groupeB7.entities.Evenement;
 import be.helha.groupeB7.entities.Personne;
+import be.helha.groupeB7.entities.Utilisateur;
 import be.helha.groupeB7.sessionejb.GestionEvenementEJB;
 import be.helha.groupeB7.util.Tools;
 
@@ -103,7 +104,6 @@ public class EvenementController {
 	public void deleteEvent(Evenement event) {
 		gestionEvenementEJB.deleteEvenement(event);
 	}
-	
 	
 	public Evenement getEvent() {
 		return event;

@@ -87,4 +87,9 @@ public class DAOGestionEvenement {
 		
 	}
 
+	public void deleteEventUser(Evenement e) {
+		
+		em.remove(em.merge(e));
+		
+	}
 }

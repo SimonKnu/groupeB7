@@ -1,5 +1,6 @@
 package be.helha.groupeB7.entities;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,7 +21,7 @@ import javax.sql.rowset.serial.SerialException;
 import com.mysql.jdbc.Blob;
 
 @Entity
-public class Evenement {
+public class Evenement implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;

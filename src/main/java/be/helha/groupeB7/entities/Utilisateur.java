@@ -73,6 +73,9 @@ public class Utilisateur extends Personne implements Serializable{
 			events.add(event);
 		}
 	}
+	public void supprimerEvent(Evenement event) {
+		events.remove(event);
+	}
 
 	public String toString() {
 		return "User "+super.toString();

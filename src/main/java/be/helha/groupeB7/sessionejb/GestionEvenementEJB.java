@@ -43,7 +43,7 @@ public class GestionEvenementEJB implements IGestionEvenementEJBRemote{
 		// TODO Auto-generated method stub
 		dao.deleteEvent(e);
 	}
-
+	
 	@Override
 	public List<Evenement> selectUserEvent(Personne p) {
 		// TODO Auto-generated method stub
