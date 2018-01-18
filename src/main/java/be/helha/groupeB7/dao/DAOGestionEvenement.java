@@ -33,6 +33,16 @@ public class DAOGestionEvenement {
 		
 	}
 	
+	public List<Evenement> getTopEvents(){
+		
+		Query q = em.createQuery("SELECT e FROM Evenement e WHERE e.confirm = :confirm order by e.popularite DESC");
+		q.setParameter("confirm", true);
+		q.setMaxResults(4);
+		
+		return q.getResultList();
+		
+	}
+	
 	public List<Evenement> getUserEvent(Personne u){
 		
 		Query q = em.createQuery("SELECT p.events FROM Utilisateur p WHERE p.login = :login");
