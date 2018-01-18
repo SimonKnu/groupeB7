@@ -38,7 +38,7 @@
 					<h:panelGrid columns="1" cellpadding="7">										
 						<b:inputText value="#{evenementController.nomImage}" label="Nom de l'image" required="true"></b:inputText>
 						
-						<h:inputFile value = "#{personneController.fileImage}" label="Image"></h:inputFile><br/>
+						<h:inputFile value = "#{evenementController.fileImage}" label="Image"></h:inputFile><br/>
 											
 						<b:commandButton class="boutton" value="Ajouter l'image" action="#{evenementController.ajouterImage()}"></b:commandButton>
 					</h:panelGrid>
@@ -49,9 +49,9 @@
 					<h:panelGrid columns="1" cellpadding="7">										
 						<b:inputText value="#{evenementController.nomImage}" label="Nom de l'image" required="true"></b:inputText>
 						
-						<h:inputFile value = "#{personneController.fileImage}" label="Image"></h:inputFile><br/>
+						<h:inputFile value = "#{evenementController.fileImage}" label="Image"></h:inputFile><br/>
 											
-						<b:commandButton class="boutton" value="Ajouter l'image"></b:commandButton>
+						<b:commandButton class="boutton" value="Supprimer l'image"></b:commandButton>
 					</h:panelGrid>
 			</h:form>
         </b:container>

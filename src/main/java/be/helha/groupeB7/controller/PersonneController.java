@@ -84,14 +84,24 @@ public class PersonneController{
 			p.ajouterEvent(e);
 			ejb.updatePersonne(p);
 			this.resetEvent();
+			
+			if(p instanceof Administrateur) {
+				return "admin.xhtml?faces-redirect=true";
+			}
+			else {
+				return "myEvents.xhtml?faces-redirect=true";
+			}
 		} 
 		catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		resetEvent();
-
 		return "index.xhtml?faces-redirect=true";
 	}
+	
+	public void deleteEvent(Evenement event,Personne p) {
+	//	gestionEvenementEJB.deleteEvenement(event);
+	}
+
 	
 	private void resetEvent() {
 		this.name="";
