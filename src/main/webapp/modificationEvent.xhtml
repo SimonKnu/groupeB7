@@ -25,8 +25,34 @@
 			
 						<b:datepicker label="Date de fin" showWeek="true" firstDay="1" value="#{evenementController.dateFin}" required="true"></b:datepicker>
 	
-						<b:commandButton class="boutton" value="Mofifier l'événement"></b:commandButton>
+						<b:commandButton class="boutton" value="Mofifier l'événement" disabled="true"></b:commandButton>
 				</h:panelGrid>
+			</h:form>
+			
+			<br/>
+			<hr/>
+			<br/>
+			
+			<h:form enctype="multipart/form-data">
+				<h4>Ajouter des images dans votre événement</h4>
+					<h:panelGrid columns="1" cellpadding="7">										
+						<b:inputText value="#{evenementController.nomImage}" label="Nom de l'image" required="true"></b:inputText>
+						
+						<h:inputFile value = "#{personneController.fileImage}" label="Image"></h:inputFile><br/>
+											
+						<b:commandButton class="boutton" value="Ajouter l'image" action="#{evenementController.ajouterImage()}"></b:commandButton>
+					</h:panelGrid>
+				
+				<hr/>
+					
+				<h4>Supprimer des images de votre événement</h4>
+					<h:panelGrid columns="1" cellpadding="7">										
+						<b:inputText value="#{evenementController.nomImage}" label="Nom de l'image" required="true"></b:inputText>
+						
+						<h:inputFile value = "#{personneController.fileImage}" label="Image"></h:inputFile><br/>
+											
+						<b:commandButton class="boutton" value="Ajouter l'image"></b:commandButton>
+					</h:panelGrid>
 			</h:form>
         </b:container>
     </h:body>

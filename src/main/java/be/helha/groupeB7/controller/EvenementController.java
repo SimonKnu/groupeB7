@@ -18,6 +18,7 @@ import javax.inject.Named;
 import javax.servlet.http.Part;
 
 import be.helha.groupeB7.entities.Evenement;
+import be.helha.groupeB7.entities.Image;
 import be.helha.groupeB7.entities.Personne;
 import be.helha.groupeB7.entities.Utilisateur;
 import be.helha.groupeB7.sessionejb.GestionEvenementEJB;
@@ -36,6 +37,9 @@ public class EvenementController {
 	private Date dateFin;
 	private Part file;
 
+	private Part fileImage;
+	private String nomImage;
+	private Evenement eventImage;
 
 	@EJB
 	private GestionEvenementEJB gestionEvenementEJB;
@@ -78,6 +82,7 @@ public class EvenementController {
 		this.nom = event.getNom();
 		this.lieu = event.getLieu();
 		this.description = event.getDescription();
+		this.eventImage = event;
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		try {
@@ -91,26 +96,21 @@ public class EvenementController {
 		return "modificationEvent.xhtml";	
 	}
 
-	public String createEvent() {
-		Evenement e;
+	
+	public String ajouterImage() {
+		Image im;
 		try {
-			e = new Evenement(nom,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()), true, 0);
-			gestionEvenementEJB.addEvenement(e);
-		} 
+			im = new Image(nomImage,Tools.readImage(fileImage.getInputStream()));
+			getEventImage().ajouterImageEvent(im);
+			gestionEvenementEJB.updateEvenement(getEventImage());
+		}
 		catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		resetEvent();
-
-		return "index.xhtml?faces-redirect=true";
+		
+		return "modificationEvent.xhtml?faces-redirect=true";
 	}
 	
-
-	private void resetEvent() {
-		this.nom="";
-		this.lieu="";
-		this.description="";
-	}
 	
 	public void deleteEvent(Evenement event) {
 		gestionEvenementEJB.deleteEvenement(event);
@@ -164,5 +164,28 @@ public class EvenementController {
 	public void setFile(Part file) {
 		this.file = file;
 	}
+
+	public Part getFileImage() {
+		return fileImage;
+	}
+	public void setFileImage(Part fileImage) {
+		this.fileImage = fileImage;
+	}
+
+	public String getNomImage() {
+		return nomImage;
+	}
+	public void setNomImage(String nomImage) {
+		this.nomImage = nomImage;
+	}
+
+	public Evenement getEventImage() {
+		return eventImage;
+	}
+
+	public void setEventImage(Evenement eventImage) {
+		this.eventImage = eventImage;
+	}
+	
 
 }

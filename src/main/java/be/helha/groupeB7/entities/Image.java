@@ -1,6 +1,7 @@
 package be.helha.groupeB7.entities;
 
 import java.io.Serializable;
+import java.util.Base64;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,9 +25,9 @@ public class Image implements Serializable {
 	public Image() {
 		
 	}
-	public Image(String nom, Blob image) {
+	public Image(String nom, byte[] image) {
 		this.imageName=nom;
-	//	this.imageBlob=image;
+		this.image=image;
 	}
 
 	
@@ -45,14 +46,13 @@ public class Image implements Serializable {
 		this.imageName = imageName;
 	}
 	
-	public byte[] getImage() {
-		return image;
+	public String getImage() {
+		byte[] tmp = Base64.getEncoder().encode(image);
+		return new String(tmp);
 	}
-	public void setImage(byte[] image) {
-		this.image = image;
+	public void setImage(byte[] img) {
+		this.image = img;
 	}
-	
-	
 	
 	
 }
