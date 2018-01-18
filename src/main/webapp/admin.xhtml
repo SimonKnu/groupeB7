@@ -76,7 +76,7 @@
 					<b:datepicker label="Date de début" showWeek="true" firstDay="1" value="#{personneController.dateDeb}" required="true"></b:datepicker>
 			
 					<b:datepicker label="Date de fin" showWeek="true" firstDay="1" value="#{personneController.dateFin}" required="true"></b:datepicker>
-	
+					<h5><b>Image de couverture</b></h5>
 					<h:inputFile value = "#{personneController.file}" label="Image de couverture"></h:inputFile><br/>
 					<b:commandButton class="boutton" value="Créer un événement" action="#{personneController.createUserEvent(connexionController.user)}"></b:commandButton>
 				</h:panelGrid>
