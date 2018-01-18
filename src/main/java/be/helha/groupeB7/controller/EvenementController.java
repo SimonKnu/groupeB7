@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import javax.ejb.EJB;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.servlet.http.Part;
@@ -27,7 +28,7 @@ import be.helha.groupeB7.sessionejb.GestionEvenementEJB;
 import be.helha.groupeB7.util.Tools;
 
 @Named
-@RequestScoped
+@ApplicationScoped
 public class EvenementController {
 	private Evenement event;
 	
