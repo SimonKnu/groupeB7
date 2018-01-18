@@ -7,6 +7,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
 import be.helha.groupeB7.dao.DAOGestionPersonne;
+import be.helha.groupeB7.entities.Evenement;
 import be.helha.groupeB7.entities.Personne;
 
 @Stateless
@@ -56,6 +57,9 @@ public class GestionPersonneEJB implements IGestionPersonneEJBRemote {
 		return dao.getPersonne(login);
 	}
 	
-	
+	@Override
+	public Personne getPersonneFromEvent(Evenement e) {
+		return dao.getPersonneFromEvent(e);
+	}
 
 }
