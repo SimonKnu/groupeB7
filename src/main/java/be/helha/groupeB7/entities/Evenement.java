@@ -33,6 +33,7 @@ public class Evenement implements Serializable {
 	private Date dateDeb;
 	private Date dateFin;
 	private boolean confirm;
+	private int popularite;
 	
 	@Lob
 	private byte[] couverture;
@@ -43,7 +44,7 @@ public class Evenement implements Serializable {
 	public Evenement() {
 		
 	}
-	public Evenement(String nom, String lieu, String description, Date dateDeb, Date dateFin, byte[] couverture, boolean confirm) {
+	public Evenement(String nom, String lieu, String description, Date dateDeb, Date dateFin, byte[] couverture, boolean confirm, int popularite) {
 		this.nom = nom;
 		this.lieu = lieu;
 		this.description=description;
@@ -51,6 +52,7 @@ public class Evenement implements Serializable {
 		this.dateFin=dateFin;
 		this.couverture = couverture;
 		this.confirm = confirm;
+		this.popularite = popularite;
 	}
 	
 	public int getId() {
@@ -119,7 +121,12 @@ public class Evenement implements Serializable {
 		images.remove(image);
 	}
 	
-	
+	public int getPopularite() {
+		return popularite;
+	}
+	public void setPopularite(int popularite) {
+		this.popularite = popularite;
+	}
 	
 	public String getCouverture() {
 		byte[] tmp = Base64.getEncoder().encode(couverture);

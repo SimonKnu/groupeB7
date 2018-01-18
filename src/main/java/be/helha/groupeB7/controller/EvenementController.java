@@ -63,6 +63,13 @@ public class EvenementController {
 	
 	public String goDetailEvent(Evenement event) {
 		this.event = event;
+		this.event.setPopularite(this.event.getPopularite()+1);
+		gestionEvenementEJB.updateEvenement(this.event);
+		return "detailEvenement.xhtml";	
+	}
+	
+	public String goDetailEventAdmin(Evenement event) {
+		this.event = event;
 		return "detailEvenement.xhtml";	
 	}
 	
@@ -100,12 +107,6 @@ public class EvenementController {
 		return "modificationEvent.xhtml?faces-redirect=true";
 	}
 	
-
-	private void resetEvent() {
-		this.nom="";
-		this.lieu="";
-		this.description="";
-	}
 	
 	public void deleteEvent(Evenement event) {
 		gestionEvenementEJB.deleteEvenement(event);

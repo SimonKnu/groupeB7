@@ -23,6 +23,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.Part;
 
+import be.helha.groupeB7.entities.Administrateur;
 import be.helha.groupeB7.entities.Evenement;
 import be.helha.groupeB7.entities.Personne;
 import be.helha.groupeB7.entities.Utilisateur;
@@ -50,8 +51,8 @@ public class PersonneController{
 	private Part file;
 	
 	//Email data
-	private final String email = "TheFinalExam.contact@gmail.com";
-	private final String passwordEmail = "helha2017groupe20";
+	private final String email = "geniessansfrontiere@gmail.com";
+	private final String passwordEmail = "abc123def5";
 	
 	public List<Personne> doListPersonne(){
 		return ejb.selectAll();
@@ -74,13 +75,15 @@ public class PersonneController{
 	public String createUserEvent(Personne p) {
 		Evenement e;
 		try {
-			e = new Evenement(name,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()), false);
+			if(p instanceof Administrateur) {
+				e = new Evenement(name,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()), true,0);
+			}
+			else {
+				e = new Evenement(name,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()), false,0);
+			}
 			p.ajouterEvent(e);
 			ejb.updatePersonne(p);
-			if(p instanceof Utilisateur) {
-				this.resetEvent();
-			}
-			this.sendMail();
+			this.resetEvent();
 		} 
 		catch (IOException e1) {
 			e1.printStackTrace();
@@ -111,6 +114,11 @@ public class PersonneController{
 		this.mail = "";
 	}
 	
+	
+	
+	
+	
+	
 	public void sendMail() {
 		
 		Properties props = new Properties();
@@ -132,9 +140,9 @@ public class PersonneController{
 		
 		try {
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("simon.romain2@gmail.com"));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("simon.romain2@gmail.com"));
-			message.setSubject("Requête d'événement");
+			message.setFrom(new InternetAddress("geniessansfrontiere@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("geniessansfrontiere@gmail.com"));
+			message.setSubject("MSF - Requête d'événement");
 			message.setText("Un utilisateur a envoyé une requête afin d'accepter la publication de son événement");
 			
 			Transport.send(message);
