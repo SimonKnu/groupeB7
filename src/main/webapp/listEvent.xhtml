@@ -23,6 +23,7 @@
 			   			<f:facet name="header">
 				        	Evénement
 				     	</f:facet>
+				     	<!--  C'est la balise src qui comprend les bytes en base 64 et les convertit en une image -->
 		     			<img src="data:image/jpg;base64,#{event.couverture}" style="width: 300px; height: 300px" class="pull-left gap-right img-thumbnail"></img>
 		     			<p><h2>#{event.nom}</h2></p>
 		     			<p><b:commandButton value="Plus de détails" icon="plus" action="#{evenementController.goDetailEvent(event)}"></b:commandButton></p>
