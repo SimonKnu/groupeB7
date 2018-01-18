@@ -118,6 +118,15 @@ public class EvenementController implements Serializable {
 		return "modificationEvent.xhtml?faces-redirect=true";
 	}
 	
+	public String supprimerImage(Image im) {
+		
+		this.eventImage.supprimerImageEvent(im);
+		gestionEvenementEJB.updateEvenement(this.eventImage);
+		
+		return "modificationEvent.xhtml?faces-redirect=true";
+		
+	}
+	
 	
 	public Evenement getEvent() {
 		return event;
