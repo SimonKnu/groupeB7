@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import be.helha.groupeB7.entities.Evenement;
 import be.helha.groupeB7.entities.Personne;
 import be.helha.groupeB7.entities.UserGroup;
 
@@ -51,6 +52,20 @@ public class DAOGestionPersonne {
 			return false;
 		else
 			return true;
+		
+	}
+	
+	public Personne getPersonneFromEvent(Evenement ev) {
+		
+		Query q = em.createQuery("SELECT p FROM Personne p JOIN p.events e WHERE e.id = :id");
+		q.setParameter("id", ev.getId());
+		
+		List<Personne> personnes = q.getResultList();
+		
+		if(!personnes.isEmpty())
+			return personnes.get(0);
+		else
+			return null;
 		
 	}
 	
