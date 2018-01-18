@@ -7,23 +7,24 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Evenements</title>
+        <link rel="stylesheet" href="style.css"></link>
      </h:head>
     
     <h:body style="padding-top: 60px;">
     	<ui:include src="/navbar.xhtml"/>
         <b:container>
 			<h:form>
-		  		<b:dataTable value="#{evenementController.doListEventConfirm(true)}" var="event"  paginated="false" searching='true'>
+		  		<b:dataTable value="#{evenementController.doListEventConfirm(true)}" var="event"  paginated="true" searching='true'>
 		   			<b:dataTableColumn style="width:70%;">
 			   			<f:facet name="header">
 				        	Evénement
 				     	</f:facet>
-		     			<h4>#{event.nom}</h4>
-		     			<p><img src="data:image/jpg;base64,#{event.couverture}" style="width: 500px; height: 500px" class="img-thumbnail"></img></p>
-		     			<b:commandButton value="Plus de détails" icon="plus" action="#{evenementController.goDetailEvent(event)}"></b:commandButton>
+		     			<img src="data:image/jpg;base64,#{event.couverture}" style="width: 300px; height: 300px" class="pull-left gap-right img-thumbnail"></img>
+		     			<p><h2>#{event.nom}</h2></p>
+		     			<p><b:commandButton value="Plus de détails" icon="plus" action="#{evenementController.goDetailEvent(event)}"></b:commandButton></p>
 		   			</b:dataTableColumn>
 		   			<b:dataTableColumn value="#{event.lieu}"  label="Lieu" style="width:15%;"></b:dataTableColumn>
-		   			<b:dataTableColumn value="#{event.dateDeb}"  label="Date de naissance"></b:dataTableColumn>
+		   			<b:dataTableColumn value="#{event.dateDeb}"  label="Date"></b:dataTableColumn>
 		    	</b:dataTable>
 			</h:form>
 		</b:container>
