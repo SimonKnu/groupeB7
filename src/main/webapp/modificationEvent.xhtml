@@ -25,8 +25,9 @@
 						<b:datepicker label="Date de début" showWeek="true" firstDay="1" value="#{evenementController.dateDeb}" required="true"></b:datepicker>
 			
 						<b:datepicker label="Date de fin" showWeek="true" firstDay="1" value="#{evenementController.dateFin}" required="true"></b:datepicker>
+						<h:inputFile value = "#{evenementController.file}" label="Image de couverture"></h:inputFile><br/>
 	
-						<b:commandButton class="boutton" value="Mofifier l'événement" disabled="true"></b:commandButton>
+						<b:commandButton class="boutton" value="Mofifier l'événement" action="#{evenementController.modifEvent()}"></b:commandButton>
 				</h:panelGrid>
 			</h:form>
 			

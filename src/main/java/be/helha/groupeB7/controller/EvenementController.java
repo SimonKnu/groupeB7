@@ -34,7 +34,6 @@ import be.helha.groupeB7.util.Tools;
 public class EvenementController implements Serializable {
 	private Evenement event;
 	
-	private int id;
 	private String nom;
 	private String lieu;
 	private String description;
@@ -83,23 +82,34 @@ public class EvenementController implements Serializable {
 	}
 	
 	public String goModificationEvent(Evenement event) {
-		this.id = event.getId();
 		this.nom = event.getNom();
 		this.lieu = event.getLieu();
 		this.description = event.getDescription();
 		this.eventImage = event;
 	
-		
-		/*SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-		try {
-			this.dateDeb = formatter.parse(event.getDateDeb());
-			this.dateFin = formatter.parse(event.getDateFin());
-		} 
-		catch (ParseException e) {
-			e.printStackTrace();
-		}*/
-		
 		return "modificationEvent.xhtml?faces-redirect=true";	
+	}
+	
+	public String modifEvent() {
+		try {
+			this.eventImage.setNom(nom);
+			this.eventImage.setDescription(description);
+			this.eventImage.setLieu(lieu);
+			if(file!=null) {
+				this.eventImage.setCouverture(Tools.readImage(file.getInputStream()));
+			}			
+			if(dateDeb!=null) {
+				this.eventImage.setDateDeb(dateDeb);
+			}
+			if(dateFin!=null) {
+				this.eventImage.setDateFin(dateFin);
+			}
+			gestionEvenementEJB.updateEvenement(eventImage);
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "modificationEvent.xhtml?faces-redirect=true";
 	}
 
 	
