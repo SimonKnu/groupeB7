@@ -48,31 +48,37 @@ public class EvenementController implements Serializable {
 	@EJB
 	private GestionEvenementEJB gestionEvenementEJB;
 	
+	//Renvoie une liste contenant les 4 événements les plus populaires
 	public List<Evenement> doTopEvent(){
 		return gestionEvenementEJB.selectTopEvents();
 	}
 	
+	//Permet de confirmer un événement
 	public void confirmer(Evenement evenement) {
 		evenement.setConfirm(true);
 		gestionEvenementEJB.updateEvenement(evenement);
 	}
 	
+	//Renvoie la liste de tout les événements
 	public List<Evenement> doListEvent(){
 		return gestionEvenementEJB.selectAll();
 	}
 	
+	//Renvoie la liste de tout les événements d'un tulisateur
 	public List<Evenement> doListEventUser(Personne p){
 		return gestionEvenementEJB.selectUserEvent(p);
 	}
 	
+	//Renvoie la liste de tout les événements confirmés
 	public List<Evenement> doListEventConfirm(boolean confirm){
 		return gestionEvenementEJB.selectConfirmEvent(confirm);
 	}
 	
+	
 	public String goDetailEvent(Evenement event) {
-		this.event = event;
-		this.event.setPopularite(this.event.getPopularite()+1);
-		gestionEvenementEJB.updateEvenement(this.event);
+		this.event = event; 
+		this.event.setPopularite(this.event.getPopularite()+1); 
+		gestionEvenementEJB.updateEvenement(this.event); 
 		return "detailEvenement.xhtml";	
 	}
 	

@@ -55,31 +55,38 @@ public class PersonneController{
 	private final String email = "geniessansfrontiere@gmail.com";
 	private final String passwordEmail = "abc123def5";
 	
+	//Renvoie la lidte de personne
 	public List<Personne> doListPersonne(){
 		return ejb.selectAll();
 	}
 	
+	//Redirige vers la page de l'administrateur
 	public String goAdmin() {
 		return "admin.xhtml?faces-redirect=true";
 	}
 	
+	//Redirige vers la page de l'inscription
 	public String goInscription() {
 		return "inscription.xhtml?faces-redirect=true";
 	}
 	
+	//Permet de créer un utilisateur
 	public void createUtilisateur() {
 		Utilisateur utilisateur = new Utilisateur(this.login, this.password, this.nom, this.prenom, this.dateNaiss, this.mail);
 		ejb.addPersonne(utilisateur);
-		resetUtilisateur();
+		resetUtilisateur(); //Remet les champs du formulaire à null
 	}
 	
+	//Permet de créer l'événement
 	public String createUserEvent(Personne p) {
 		Evenement e;
 		try {
 			if(p instanceof Administrateur) {
+				//Créé par un admin -> directement confirmé
 				e = new Evenement(name,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()), true,0);
 			}
 			else {
+				//Créé par un admin -> en attente de confirmation
 				e = new Evenement(name,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()), false,0);
 			}
 			p.ajouterEvent(e);
@@ -87,24 +94,30 @@ public class PersonneController{
 			this.resetEvent();
 			
 			if(p instanceof Administrateur) {
+				//Redirige vers la page administrateur
 				return "admin.xhtml?faces-redirect=true";
 			}
 			else {
+				//Envoie la notification de création par mail à l'admin
 				sendMail();
+				//Redirige vers la page utlisateur
 				return "myEvents.xhtml?faces-redirect=true";
 			}
 		} 
 		catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		//Redirige vers la page d'accueil
 		return "index.xhtml?faces-redirect=true";
 	}
 	
+	//Permet de supprimer l'événement d'un utilisateur
 	public void deleteEventUser(Evenement event,Personne p) {
 		p.supprimerEvent(event);
 		ejb.updatePersonne(p);
 	}
 	
+	//Permet de supprimer un événement
 	public void deleteEvent(Evenement event) {
 		Personne p = ejb.getPersonneFromEvent(event);
 		p.supprimerEvent(event);
@@ -112,13 +125,14 @@ public class PersonneController{
 		
 	}
 
-	
+	//Remet les champs du formulaire à null
 	private void resetEvent() {
 		this.name="";
 		this.lieu="";
 		this.description="";
 	}
 	
+	//Permet d'ajouter un événement à un utilisateur
 	public void addEvenementUser(Utilisateur u, Evenement e) {
 		
 		u.ajouterEvent(e);
@@ -126,6 +140,7 @@ public class PersonneController{
 		
 	}
 	
+	//Remet les champs du formulaire à null
 	public void resetUtilisateur() {
 		this.login = "";
 		this.password = "";
@@ -138,7 +153,7 @@ public class PersonneController{
 	
 	
 	
-	
+	//Envoie d'une notification de création d'un événement par mail à l'administrateur
 	public void sendMail() {
 		
 		Properties props = new Properties();
@@ -179,6 +194,8 @@ public class PersonneController{
 	
 	}
 
+	//GETTER SETTER
+	
 	public String getLogin() {
 		return login;
 	}
