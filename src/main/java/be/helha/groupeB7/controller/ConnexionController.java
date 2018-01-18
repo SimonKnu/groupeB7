@@ -24,6 +24,8 @@ public class ConnexionController implements Serializable {
 	private String prenom;
 	private Date dateNais;
 	
+	private Evenement ev;
+	
 	@EJB
 	private GestionPersonneEJB ejb;
 	

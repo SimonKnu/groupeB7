@@ -17,6 +17,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.servlet.http.Part;
 
+import org.apache.derby.tools.sysinfo;
+
 import be.helha.groupeB7.entities.Evenement;
 import be.helha.groupeB7.entities.Image;
 import be.helha.groupeB7.entities.Personne;
@@ -83,25 +85,27 @@ public class EvenementController {
 		this.lieu = event.getLieu();
 		this.description = event.getDescription();
 		this.eventImage = event;
+	
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		/*SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		try {
 			this.dateDeb = formatter.parse(event.getDateDeb());
 			this.dateFin = formatter.parse(event.getDateFin());
 		} 
 		catch (ParseException e) {
 			e.printStackTrace();
-		}
+		}*/
 		
-		return "modificationEvent.xhtml";	
+		return "modificationEvent.xhtml?faces-redirect=true";	
 	}
 
 	
 	public String ajouterImage() {
 		Image im;
+		System.out.println(this.eventImage);
 		try {
 			im = new Image(nomImage,Tools.readImage(fileImage.getInputStream()));
-			getEventImage().ajouterImageEvent(im);
+			this.eventImage.ajouterImageEvent(im);
 			gestionEvenementEJB.updateEvenement(getEventImage());
 		}
 		catch (IOException e1) {
@@ -178,7 +182,7 @@ public class EvenementController {
 	}
 
 	public Evenement getEventImage() {
-		return eventImage;
+		return this.eventImage;
 	}
 	public void setEventImage(Evenement eventImage) {
 		this.eventImage = eventImage;
