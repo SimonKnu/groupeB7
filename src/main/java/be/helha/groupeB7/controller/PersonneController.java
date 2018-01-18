@@ -86,6 +86,7 @@ public class PersonneController{
 			this.resetEvent();
 			
 			if(p instanceof Administrateur) {
+				sendMail();
 				return "admin.xhtml?faces-redirect=true";
 			}
 			else {
