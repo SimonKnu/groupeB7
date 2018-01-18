@@ -32,8 +32,8 @@ import be.helha.groupeB7.sessionejb.GestionPersonneEJB;
 import be.helha.groupeB7.util.Tools;
 
 @Named
-@SessionScoped
-public class PersonneController implements Serializable{
+@RequestScoped
+public class PersonneController{
 
 	@EJB
 	private GestionPersonneEJB ejb;

@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,6 +16,7 @@ import java.util.Scanner;
 import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.servlet.http.Part;
 
@@ -28,8 +30,8 @@ import be.helha.groupeB7.sessionejb.GestionEvenementEJB;
 import be.helha.groupeB7.util.Tools;
 
 @Named
-@ApplicationScoped
-public class EvenementController {
+@SessionScoped
+public class EvenementController implements Serializable {
 	private Evenement event;
 	
 	private int id;
