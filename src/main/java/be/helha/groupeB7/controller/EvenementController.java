@@ -44,6 +44,10 @@ public class EvenementController {
 	@EJB
 	private GestionEvenementEJB gestionEvenementEJB;
 	
+	public List<Evenement> doTopEvent(){
+		return gestionEvenementEJB.selectTopEvents();
+	}
+	
 	public void confirmer(Evenement evenement) {
 		evenement.setConfirm(true);
 		gestionEvenementEJB.updateEvenement(evenement);

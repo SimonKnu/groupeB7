@@ -13,8 +13,13 @@
     <h:body style="padding-top: 60px;">
     	<ui:include src="/navbar.xhtml"/>
         <b:container>
+       		<b:image  style="width:100%" value="cover.jpg"></b:image>
+       		<hr/>
+       		<h2 class="text-center">Découvrez nos principaux événements</h2>
+       		<hr/>
+       		<br/>
 			<h:form>
-		  		<b:dataTable value="#{evenementController.doListEventConfirm(true)}" var="event"  paginated="true" searching='true'>
+		  		<b:dataTable value="#{evenementController.doTopEvent()}" var="event"  paginated="false" searching='false'>
 		   			<b:dataTableColumn style="width:70%;">
 			   			<f:facet name="header">
 				        	Evénement
@@ -23,8 +28,9 @@
 		     			<p><h2>#{event.nom}</h2></p>
 		     			<p><b:commandButton value="Plus de détails" icon="plus" action="#{evenementController.goDetailEvent(event)}"></b:commandButton></p>
 		   			</b:dataTableColumn>
-		   			<b:dataTableColumn value="#{event.lieu}"  label="Lieu" style="width:15%;"></b:dataTableColumn>
+		   			<b:dataTableColumn value="#{event.lieu}"  label="Lieu"></b:dataTableColumn>
 		   			<b:dataTableColumn value="#{event.dateDeb}"  label="Date"></b:dataTableColumn>
+		   			<b:dataTableColumn value="#{event.popularite}"  label="Popularité" style="width:10%;"></b:dataTableColumn>
 		    	</b:dataTable>
 			</h:form>
 		</b:container>

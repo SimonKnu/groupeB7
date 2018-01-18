@@ -12,6 +12,7 @@ import be.helha.groupeB7.entities.Utilisateur;
 public interface IGestionEvenementEJBRemote {
 	
 	public List<Evenement> selectAll();
+	public List<Evenement> selectTopEvents();
 	public List<Evenement> selectUserEvent(Personne p);
 	public List<Evenement> selectConfirmEvent(boolean confirm);
 	public Evenement addEvenement(Evenement e);
