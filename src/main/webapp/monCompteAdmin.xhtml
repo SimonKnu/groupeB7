@@ -12,7 +12,9 @@
     <h:body style="padding-top: 60px; padding-bottom: 20px;">
     	<ui:include src="/navbar.xhtml"/>
         <b:container>
-        	<h1>Mon compte</h1>
+        	<hr/>
+        	<h2 class="text-center">Mon compte</h2>
+        	<hr/>
           	<h:form inline="true">
 				<h:panelGrid columns="1" cellpadding="7">
 					<b:inputText value="#{connexionController.login}" label="Login" required="true" disabled="true"></b:inputText>

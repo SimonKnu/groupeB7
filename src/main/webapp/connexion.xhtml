@@ -12,7 +12,9 @@
     <h:body style="padding-top: 60px; padding-bottom: 20px;">
     	<ui:include src="/navbar.xhtml"/>
         <b:container>
-	        <h4>Connexion</h4>  
+	        <hr/>
+        	<h2 class="text-center">Connexion</h2>
+        	<hr/> 
 			<h:form inline="true" id="login" onsubmit="document.getElementById('login').action='j_security_check';" preprendId="false">
 				<h:panelGrid columns="1" cellpadding="2">
 					<b:inputText label="Login" required="true" id="j_username" name="j_username"></b:inputText>

@@ -12,9 +12,13 @@
     <h:body style="padding-top: 60px; padding-bottom: 20px;">
     	<ui:include src="/navbar.xhtml"/>
     	<b:container>
+    		<hr/>
+        	<h2 class="text-center">Gestion des événements</h2>
+        	<hr/> 
+        	<br/>
 			<h:form>
-				<h4>Liste de vos évènements</h4>
-		  		<b:dataTable value="#{evenementController.doListEventUser(connexionController.user)}" var="event"  paginated="false" searching='true'>
+				<h4><i>Liste de vos évènements</i></h4>
+		  		<b:dataTable value="#{evenementController.doListEventUser(connexionController.user)}" var="event"  paginated="true" searching='true'>
 		   			<b:dataTableColumn style="width:40%;" value="#{event.nom}"></b:dataTableColumn>
 		   			<b:dataTableColumn style="width:20%;">
 			   			<f:facet name="header">
@@ -38,7 +42,7 @@
 			<br/>
 			
 			<h:form enctype="multipart/form-data">
-				<h4>Ajouter un évènement</h4>
+				<h4><i>Ajouter un évènement</i></h4>
 					<h:panelGrid columns="1" cellpadding="7">	
 						<b:inputText value="#{personneController.name}" label="Nom" required="true"></b:inputText>
 						
