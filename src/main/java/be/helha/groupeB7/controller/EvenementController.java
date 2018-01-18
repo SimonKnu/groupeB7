@@ -83,7 +83,7 @@ public class EvenementController {
 	public String createEvent() {
 		Evenement e;
 		try {
-			e = new Evenement(nom,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()), true);
+			e = new Evenement(nom,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()), true, 0);
 			gestionEvenementEJB.addEvenement(e);
 		} 
 		catch (IOException e1) {
