@@ -34,7 +34,7 @@ public static byte[] readFile(String file) {
 	}
 
 
-
+//Parcourt un flux d'entrée pour en extraire chaque byte et en renvoyer un tableau
 public static byte[] readImage(InputStream input) {
 	
 	ByteArrayOutputStream bos = null;
@@ -42,6 +42,8 @@ public static byte[] readImage(InputStream input) {
 	try {
 		byte[] buffer = new byte[1024];
 		bos = new ByteArrayOutputStream();
+		
+		//Parcourt le contenu du fichier
 		for(int i; (i = input.read(buffer)) != -1;)
 			bos.write(buffer, 0, i);
 	} catch (FileNotFoundException e) {
@@ -51,6 +53,7 @@ public static byte[] readImage(InputStream input) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+	//Ce tableau de byte caractérise l'image
 	return bos != null ? bos.toByteArray() : null;
 	
 }

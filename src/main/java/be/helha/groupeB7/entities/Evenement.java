@@ -36,6 +36,7 @@ public class Evenement implements Serializable {
 	private boolean confirm;
 	private int popularite;
 	
+	//Photo de couverture
 	@Lob
 	private byte[] couverture;
 
@@ -138,6 +139,7 @@ public class Evenement implements Serializable {
 		this.popularite = popularite;
 	}
 	
+	//Convertit le tableau de byte en base 64 et le renvoie sous forme de chaîne de caractère
 	public String getCouverture() {
 		byte[] tmp = Base64.getEncoder().encode(couverture);
 		return new String(tmp);
