@@ -16,11 +16,11 @@
            <h:form enctype="multipart/form-data">
 				<h4><i>Modifier un évènement</i></h4>
 					<h:panelGrid columns="1" cellpadding="7">	
-						<b:inputText value="#{evenementController.nom}" label="Nom" required="true"></b:inputText>
+						<b:inputText value="#{evenementController.nom}" label="Nom" required="true" maxlength="200"></b:inputText>
 						
-						<b:inputText value="#{evenementController.lieu}" label="Lieu" required="true"></b:inputText>
+						<b:inputText value="#{evenementController.lieu}" label="Lieu" required="true" maxlength="200"></b:inputText>
 						
-						<b:inputTextarea value="#{evenementController.description}" label="Description" required="true"></b:inputTextarea>
+						<b:inputTextarea value="#{evenementController.description}" label="Description" required="true" maxlength="250"></b:inputTextarea>
 						
 						<b:datepicker label="Date de début" showWeek="true" firstDay="1" value="#{evenementController.dateDeb}" required="true"></b:datepicker>
 			

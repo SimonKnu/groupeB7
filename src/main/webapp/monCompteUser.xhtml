@@ -18,11 +18,11 @@
         	<hr/>
           	<h:form inline="true">
 				<h:panelGrid columns="1" cellpadding="7">
-					<b:inputText value="#{connexionController.login}" label="Login" required="true" disabled="true"></b:inputText>
-					<b:inputSecret  value="#{connexionController.password}" label="Mot de passe" required="true"></b:inputSecret>
-					<b:inputText value="#{connexionController.mail}" label="Mail" required="true" mask="email"></b:inputText>
-					<b:inputText value="#{connexionController.nom}" label="Nom" required="true"></b:inputText>
-					<b:inputText value="#{connexionController.prenom}" label="Prénom" required="true"></b:inputText>
+					<b:inputText value="#{connexionController.login}" label="Login" required="true" disabled="true" maxlength="200"></b:inputText>
+					<b:inputSecret  value="#{connexionController.password}" label="Mot de passe" required="true" maxlength="200"></b:inputSecret>
+					<b:inputText value="#{connexionController.mail}" label="Mail" required="true" mask="email" maxlength="200"></b:inputText>
+					<b:inputText value="#{connexionController.nom}" label="Nom" required="true" maxlength="200"></b:inputText>
+					<b:inputText value="#{connexionController.prenom}" label="Prénom" required="true" maxlength="200"></b:inputText>
 					<b:datepicker value="#{connexionController.dateNais}" label="Date de naissance" showWeek="true" firstDay="1" required="true"></b:datepicker>
 					<b:commandButton class="boutton" value="Modifier"  action="#{connexionController.updatePersonne()}"></b:commandButton>
 				</h:panelGrid>

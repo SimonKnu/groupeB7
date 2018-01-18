@@ -87,6 +87,8 @@ public class EvenementController implements Serializable {
 		this.lieu = event.getLieu();
 		this.description = event.getDescription();
 		this.eventImage = event;
+		this.dateDeb = event.getDateD();
+		this.dateFin = event.getDateF();
 	
 		return "modificationEvent.xhtml?faces-redirect=true";	
 	}

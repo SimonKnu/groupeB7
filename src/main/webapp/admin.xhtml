@@ -67,11 +67,11 @@
 			<h:form enctype="multipart/form-data">
 				<h4><i>Ajouter un évènement</i></h4>
 				<h:panelGrid columns="1" cellpadding="7">	
-					<b:inputText value="#{personneController.name}" label="Nom" required="true"></b:inputText>
+					<b:inputText value="#{personneController.name}" label="Nom" required="true" maxlength="200"></b:inputText>
 						
-					<b:inputText value="#{personneController.lieu}" label="Lieu" required="true"></b:inputText>
+					<b:inputText value="#{personneController.lieu}" label="Lieu" required="true" maxlength="200"></b:inputText>
 						
-					<b:inputTextarea value="#{personneController.description}" label="Description" required="true"></b:inputTextarea>
+					<b:inputTextarea value="#{personneController.description}" label="Description" required="true" maxlength="250"></b:inputTextarea>
 						
 					<b:datepicker label="Date de début" showWeek="true" firstDay="1" value="#{personneController.dateDeb}" required="true"></b:datepicker>
 			

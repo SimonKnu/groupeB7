@@ -16,11 +16,11 @@
 	    	<h4>Inscription</h4>
 			<h:form inline="true">
 				<h:panelGrid columns="1" cellpadding="7">
-					<b:inputText value="#{personneController.login}" label="Login" required="true"></b:inputText>
-					<b:inputSecret  value="#{personneController.password}" label="Mot de passe" required="true"></b:inputSecret>
-					<b:inputText value="#{personneController.mail}" label="Mail" mask="email" required="true"></b:inputText>
-					<b:inputText value="#{personneController.nom}" label="Nom" required="true"></b:inputText>
-					<b:inputText value="#{personneController.prenom}" label="Prénom" required="true"></b:inputText>
+					<b:inputText value="#{personneController.login}" label="Login" required="true" maxlength="200"></b:inputText>
+					<b:inputSecret  value="#{personneController.password}" label="Mot de passe" required="true" maxlength="200"></b:inputSecret>
+					<b:inputText value="#{personneController.mail}" label="Mail" mask="email" required="true" maxlength="200"></b:inputText>
+					<b:inputText value="#{personneController.nom}" label="Nom" required="true" maxlength="200"></b:inputText>
+					<b:inputText value="#{personneController.prenom}" label="Prénom" required="true" maxlength="200"></b:inputText>
 					<b:datepicker label="Date" showWeek="true" firstDay="1" value="#{personneController.dateNaiss}" required="true"></b:datepicker>
 					<b:commandButton value="Confirmer" action="#{personneController.createUtilisateur()}"></b:commandButton>
 				</h:panelGrid>

@@ -18,8 +18,8 @@
         	<hr/> 
 			<h:form inline="true" id="login" onsubmit="document.getElementById('login').action='j_security_check';" preprendId="false">
 				<h:panelGrid columns="1" cellpadding="2">
-					<b:inputText label="Login" required="true" id="j_username" name="j_username"></b:inputText>
-					<b:inputSecret label="Mot de passe" required="true" id="j_password"  name="j_password"></b:inputSecret>
+					<b:inputText label="Login" required="true" id="j_username" name="j_username" maxlength="200"></b:inputText>
+					<b:inputSecret label="Mot de passe" required="true" id="j_password"  name="j_password" maxlength="200"></b:inputSecret>
 					<b:commandButton value="Se connecter"></b:commandButton>
 				</h:panelGrid>
 			</h:form>

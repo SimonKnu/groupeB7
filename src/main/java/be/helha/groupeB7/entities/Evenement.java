@@ -29,6 +29,7 @@ public class Evenement implements Serializable {
 	private int id;
 	private String nom;
 	private String lieu;
+	@Lob
 	private String description;
 	private Date dateDeb;
 	private Date dateFin;
@@ -106,6 +107,14 @@ public class Evenement implements Serializable {
 		formater = new SimpleDateFormat("dd-MM-yy");
 		return formater.format(dateFin);
 	}
+	
+	public Date getDateF() {
+		return dateFin;
+	}
+	public Date getDateD() {
+		return dateDeb;
+	}
+	
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
