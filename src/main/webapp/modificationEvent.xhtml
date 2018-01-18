@@ -14,7 +14,7 @@
     	<ui:include src="/navbar.xhtml"/>
         <b:container>
            <h:form enctype="multipart/form-data">
-				<h4>Modifier un évènement</h4>
+				<h4><i>Modifier un évènement</i></h4>
 					<h:panelGrid columns="1" cellpadding="7">	
 						<b:inputText value="#{evenementController.nom}" label="Nom" required="true"></b:inputText>
 						
@@ -36,7 +36,7 @@
 			<br/>
 			
 			<h:form enctype="multipart/form-data">
-				<h4>Ajouter des images dans votre événement</h4>
+				<h4><i>Ajouter des images dans votre événement</i></h4>
 					<h:panelGrid columns="1" cellpadding="7">										
 						<b:inputText value="#{evenementController.nomImage}" label="Nom de l'image" required="true"></b:inputText>
 						
@@ -44,19 +44,21 @@
 											
 						<b:commandButton class="boutton" value="Ajouter l'image" action="#{evenementController.ajouterImage()}"></b:commandButton>
 					</h:panelGrid>
-				
 				<hr/>
 				</h:form>
-				<h:form enctype="multipart/form-data">
-				<h4>Supprimer des images de votre événement</h4>
-					<h:panelGrid columns="1" cellpadding="7">										
-						<b:inputText value="#{evenementController.nomImage}" label="Nom de l'image" required="true"></b:inputText>
-						
-						<h:inputFile value = "#{evenementController.fileImage}" label="Image"></h:inputFile><br/>
-											
-						<b:commandButton class="boutton" value="Supprimer l'image"></b:commandButton>
-					</h:panelGrid>
-			</h:form>
+				<h:form>
+			  		<b:dataTable value="#{evenementController.event.images}" var="image"  paginated="false" searching='false'>
+			   			<b:dataTableColumn label="Image">
+				   			<img src="data:image/jpg;base64,#{image.image}" style="width: 200px; height: 200px" class="img-thumbnail"></img>
+			   			</b:dataTableColumn>
+			   			<b:dataTableColumn>
+				   			<f:facet name="header">
+					        	Action
+					     	</f:facet>
+			     			<b:commandButton icon="trash" action="#{evenementController.suppprimerImage(image)"></b:commandButton>
+			   			</b:dataTableColumn>
+			    	</b:dataTable>
+				</h:form>
         </b:container>
     </h:body>
 </html>

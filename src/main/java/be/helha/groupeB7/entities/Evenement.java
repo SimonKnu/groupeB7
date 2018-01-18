@@ -139,6 +139,12 @@ public class Evenement implements Serializable {
 	
 	
 	
+	public List<Image> getImages() {
+		return images;
+	}
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
 	@Override
 	public String toString() {
 		return "id=" + id + ", nom=" + nom + ", lieu=" + lieu + ", description=" + description + ", dateDeb="
