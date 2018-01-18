@@ -98,8 +98,13 @@ public class PersonneController{
 		return "index.xhtml?faces-redirect=true";
 	}
 	
-	public void deleteEvent(Evenement event,Personne p) {
-	//	gestionEvenementEJB.deleteEvenement(event);
+	public void deleteEventUser(Evenement event,Personne p) {
+		p.supprimerEvent(event);
+		ejb.updatePersonne(p);
+	}
+	
+	public void deleteEvent(Evenement event) {
+		
 	}
 
 	
