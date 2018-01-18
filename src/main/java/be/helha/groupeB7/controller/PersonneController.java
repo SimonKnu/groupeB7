@@ -50,8 +50,8 @@ public class PersonneController{
 	private Part file;
 	
 	//Email data
-	private final String email = "TheFinalExam.contact@gmail.com";
-	private final String passwordEmail = "helha2017groupe20";
+	private final String email = "geniessansfrontiere@gmail.com";
+	private final String passwordEmail = "abc123def5";
 	
 	public List<Personne> doListPersonne(){
 		return ejb.selectAll();
@@ -131,9 +131,9 @@ public class PersonneController{
 		
 		try {
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("simon.romain2@gmail.com"));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("simon.romain2@gmail.com"));
-			message.setSubject("Requête d'événement");
+			message.setFrom(new InternetAddress("geniessansfrontiere@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("geniessansfrontiere@gmail.com"));
+			message.setSubject("MSF - Requête d'événement");
 			message.setText("Un utilisateur a envoyé une requête afin d'accepter la publication de son événement");
 			
 			Transport.send(message);
