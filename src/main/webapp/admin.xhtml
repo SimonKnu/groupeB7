@@ -54,7 +54,7 @@
 			   			<f:facet name="header">
 				        	Action
 				     	</f:facet>
-		     			<b:commandButton icon="trash" action="#{evenementController.deleteEvent(event)}"></b:commandButton>
+		     			<b:commandButton icon="trash" action="#{personneController.deleteEvent(event)}"></b:commandButton>
 		     			<b:commandButton icon="pencil" action="#{evenementController.goModificationEvent(event)}"></b:commandButton>
 		     			<b:commandButton value="Plus de détails" action="#{evenementController.goDetailEventAdmin(event)}"></b:commandButton>
 		   			</b:dataTableColumn>
@@ -66,7 +66,7 @@
 			<h:form enctype="multipart/form-data">
 				<h4><i>Ajouter un évènement</i></h4>
 				<h:panelGrid columns="1" cellpadding="7">	
-					<b:inputText value="#{personneController.nom}" label="Nom" required="true"></b:inputText>
+					<b:inputText value="#{personneController.name}" label="Nom" required="true"></b:inputText>
 						
 					<b:inputText value="#{personneController.lieu}" label="Lieu" required="true"></b:inputText>
 						
@@ -76,7 +76,7 @@
 			
 					<b:datepicker label="Date de fin" showWeek="true" firstDay="1" value="#{personneController.dateFin}" required="true"></b:datepicker>
 	
-					<h:inputFile value = "#{evenementController.file}" label="Image de couverture"></h:inputFile><br/>
+					<h:inputFile value = "#{personneController.file}" label="Image de couverture"></h:inputFile><br/>
 					<b:commandButton class="boutton" value="Créer un événement" action="#{personneController.createUserEvent(connexionController.user)}"></b:commandButton>
 				</h:panelGrid>
 			</h:form>

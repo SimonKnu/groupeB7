@@ -23,6 +23,7 @@ public class ConnexionController implements Serializable {
 	private String nom;
 	private String prenom;
 	private Date dateNais;
+
 	
 	@EJB
 	private GestionPersonneEJB ejb;
@@ -50,6 +51,8 @@ public class ConnexionController implements Serializable {
 	public void savePersonne() {
 		if(isConnect() == true) {
 			if(user==null) {
+				System.out.println("SAVEEEEEEEEEEEEEED");
+
 				String name = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
 				user = ejb.getPersonne(name);
 				setVariable();
