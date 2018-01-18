@@ -112,10 +112,6 @@ public class EvenementController {
 	}
 	
 	
-	public void deleteEvent(Evenement event) {
-		gestionEvenementEJB.deleteEvenement(event);
-	}
-	
 	public Evenement getEvent() {
 		return event;
 	}
@@ -165,6 +161,8 @@ public class EvenementController {
 		this.file = file;
 	}
 
+	
+	
 	public Part getFileImage() {
 		return fileImage;
 	}
@@ -182,10 +180,7 @@ public class EvenementController {
 	public Evenement getEventImage() {
 		return eventImage;
 	}
-
 	public void setEventImage(Evenement eventImage) {
 		this.eventImage = eventImage;
 	}
-	
-
 }
