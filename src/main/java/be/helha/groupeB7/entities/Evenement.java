@@ -9,12 +9,14 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
 
@@ -34,11 +36,9 @@ public class Evenement implements Serializable {
 	
 	@Lob
 	private byte[] couverture;
-/*	
-	@ManyToMany
-	private List<Image> images = new ArrayList<Image>();;
-	*/
-	
+
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<Image> images = new ArrayList<Image>();
 	
 	public Evenement() {
 		
@@ -98,6 +98,7 @@ public class Evenement implements Serializable {
 	public void setConfirm(boolean confirm) {
 		this.confirm = confirm;
 	}
+	
 	public String getDateFin() {
 		SimpleDateFormat formater = null;
 		formater = new SimpleDateFormat("dd-MM-yy");
@@ -107,13 +108,18 @@ public class Evenement implements Serializable {
 		this.dateFin = dateFin;
 	}
 	
-	/*
+	
 	
 	public void ajouterImageEvent(Image image) {
 		if(!images.contains(image)) {
 			images.add(image);
 		}
-	}*/
+	}
+	public void supprimerImageEvent(Image image) {
+		images.remove(image);
+	}
+	
+	
 	
 	public String getCouverture() {
 		byte[] tmp = Base64.getEncoder().encode(couverture);

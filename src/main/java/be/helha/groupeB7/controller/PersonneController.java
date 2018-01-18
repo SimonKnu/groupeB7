@@ -73,12 +73,13 @@ public class PersonneController{
 	
 	public String createUserEvent(Personne p) {
 		Evenement e;
-		Utilisateur u = (Utilisateur)p;
 		try {
 			e = new Evenement(name,lieu,description,dateDeb,dateFin, Tools.readImage(file.getInputStream()), false);
-			u.ajouterEvent(e);
-			ejb.updatePersonne(u);
-			this.resetEvent();
+			p.ajouterEvent(e);
+			ejb.updatePersonne(p);
+			if(p instanceof Utilisateur) {
+				this.resetEvent();
+			}
 			this.sendMail();
 		} 
 		catch (IOException e1) {

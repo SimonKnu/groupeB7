@@ -19,9 +19,6 @@ public class Utilisateur extends Personne implements Serializable{
 	@OneToOne(cascade=CascadeType.ALL)
 	private Adresse domicile;
 	
-	@OneToMany(cascade=CascadeType.ALL)
-	private List<Evenement> events = new ArrayList<Evenement>();
-	
 	
 	
 	public Utilisateur() {
@@ -66,16 +63,6 @@ public class Utilisateur extends Personne implements Serializable{
 	}
 	
 	
-	
-	
-	public void ajouterEvent(Evenement event) {
-		if(!events.contains(event)) {
-			events.add(event);
-		}
-	}
-	public void supprimerEvent(Evenement event) {
-		events.remove(event);
-	}
 
 	public String toString() {
 		return "User "+super.toString();

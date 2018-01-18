@@ -22,6 +22,8 @@ public class Personne implements Serializable{
 	private String password;
 	private String mail;
 
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<Evenement> events = new ArrayList<Evenement>();
 	
 	
 	public Personne() {
@@ -32,6 +34,17 @@ public class Personne implements Serializable{
 		this.mail = mail;
 	}
 
+	
+	
+	public void ajouterEvent(Evenement event) {
+		if(!events.contains(event)) {
+			events.add(event);
+		}
+	}
+	public void supprimerEvent(Evenement event) {
+		events.remove(event);
+	}
+	
 	
 	
 	public int getId() {
