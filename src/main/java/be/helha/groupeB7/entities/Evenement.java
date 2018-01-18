@@ -117,6 +117,7 @@ public class Evenement implements Serializable {
 			images.add(image);
 		}
 	}
+	
 	public void supprimerImageEvent(Image image) {
 		images.remove(image);
 	}
