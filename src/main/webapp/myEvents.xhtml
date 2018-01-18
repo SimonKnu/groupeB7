@@ -9,7 +9,7 @@
         <title>Mes événements</title>
     </h:head>
     
-    <h:body style="padding-top: 60px;">
+    <h:body style="padding-top: 60px; padding-bottom: 20px;">
     	<ui:include src="/navbar.xhtml"/>
     	<b:container>
 			<h:form>
@@ -26,8 +26,8 @@
 			   			<f:facet name="header">
 				        	Action
 				     	</f:facet>
-		     			<b:commandButton icon="trash" action="#{personneController.deleteEvent(event,personneController.user)}"></b:commandButton>
-		     			<b:commandButton icon="pencil" action="#{connexionController.goModificationEvent(event)}"></b:commandButton>
+		     			<b:commandButton icon="trash" action="#{personneController.deleteEventUser(event,connexionController.user)}"></b:commandButton>
+		     			<b:commandButton icon="pencil" action="#{evenementController.goModificationEvent(event)}"></b:commandButton>
 		     			<b:commandButton value="Plus de détails" action="#{evenementController.goDetailEvent(event)}"></b:commandButton>
 		   			</b:dataTableColumn>
 		    	</b:dataTable>
