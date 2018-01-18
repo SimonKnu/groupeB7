@@ -105,6 +105,9 @@ public class PersonneController{
 	}
 	
 	public void deleteEvent(Evenement event) {
+		Personne p = ejb.getPersonneFromEvent(event);
+		p.supprimerEvent(event);
+		ejb.updatePersonne(p);
 		
 	}
 

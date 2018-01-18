@@ -20,7 +20,7 @@ public class MainData {
 			
 		Utilisateur user1 = new Utilisateur("user1","mdpU-1","Knu","Simon",new Date(),"Mail1");
 		Utilisateur user2 = new Utilisateur("user2","mdpU-2","Romain","Simon2",new Date(),"Mail2");
-		Utilisateur user3 = new Utilisateur("user3","helha","Altares","Valentin",new Date(),"Mail3");
+		Utilisateur user3 = new Utilisateur("user","helha","Altares","Valentin",new Date(),"Mail3");
 		
 		Administrateur admin = new Administrateur("admin","helha","geniessansfrontiere@gmail.com");
 		
@@ -34,7 +34,7 @@ public class MainData {
 		
 		UserGroup userGroup1 = new UserGroup("user1", "user");
 		UserGroup userGroup2 = new UserGroup("user2", "user");
-		UserGroup userGroup3 = new UserGroup("user3", "user");
+		UserGroup userGroup3 = new UserGroup("user", "user");
 		UserGroup adminGroup = new UserGroup("admin", "admin");
 		
 		user1.setDomicile(add1);

@@ -22,7 +22,7 @@ public class Personne implements Serializable{
 	private String password;
 	private String mail;
 
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.ALL,orphanRemoval=true)
 	private List<Evenement> events = new ArrayList<Evenement>();
 	
 	
