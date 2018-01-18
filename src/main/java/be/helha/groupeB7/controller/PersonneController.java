@@ -12,6 +12,7 @@ import java.util.Properties;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -31,7 +32,7 @@ import be.helha.groupeB7.sessionejb.GestionPersonneEJB;
 import be.helha.groupeB7.util.Tools;
 
 @Named
-@RequestScoped
+@SessionScoped
 public class PersonneController{
 
 	@EJB
