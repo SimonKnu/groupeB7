@@ -47,16 +47,17 @@
 				<hr/>
 				</h:form>
 				<h:form>
-			  		<b:dataTable value="#{evenementController.event.images}" var="image"  paginated="false" searching='false'>
+			  		<b:dataTable value="#{evenementController.event.images}" var="img"  paginated="false" searching='false'>
 			   			<b:dataTableColumn label="Image">
-				   			<img src="data:image/jpg;base64,#{image.image}" style="width: 200px; height: 200px" class="img-thumbnail"></img>
+				   			<img src="data:image/jpg;base64,#{img.image}" style="width: 200px; height: 200px;" class="img-thumbnail"></img>
 			   			</b:dataTableColumn>
 			   			<b:dataTableColumn>
 				   			<f:facet name="header">
 					        	Action
 					     	</f:facet>
-			     			<b:commandButton icon="trash" action="#{evenementController.suppprimerImage(image)"></b:commandButton>
-			   			</b:dataTableColumn>
+			     			<b:commandButton icon="trash" action="#{evenementController.supprimerImage(img)}"></b:commandButton>
+		   				</b:dataTableColumn>
+			   			
 			    	</b:dataTable>
 				</h:form>
         </b:container>

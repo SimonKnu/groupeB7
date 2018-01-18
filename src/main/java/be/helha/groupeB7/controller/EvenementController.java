@@ -82,6 +82,7 @@ public class EvenementController implements Serializable {
 	}
 	
 	public String goModificationEvent(Evenement event) {
+		this.event = event;
 		this.nom = event.getNom();
 		this.lieu = event.getLieu();
 		this.description = event.getDescription();
