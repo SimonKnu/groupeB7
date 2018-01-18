@@ -37,29 +37,33 @@
 			
 			<h:form enctype="multipart/form-data">
 				<h4><i>Ajouter des images dans votre événement</i></h4>
-					<h:panelGrid columns="1" cellpadding="7">										
-						<b:inputText value="#{evenementController.nomImage}" label="Nom de l'image" required="true"></b:inputText>
+				<h:panelGrid columns="1" cellpadding="7">										
+					<b:inputText value="#{evenementController.nomImage}" label="Nom de l'image" required="true"></b:inputText>
 						
-						<h:inputFile value = "#{evenementController.fileImage}" label="Image"></h:inputFile><br/>
+					<h:inputFile value = "#{evenementController.fileImage}" label="Image"></h:inputFile><br/>
 											
-						<b:commandButton class="boutton" value="Ajouter l'image" action="#{evenementController.ajouterImage()}"></b:commandButton>
-					</h:panelGrid>
-				<hr/>
-				</h:form>
-				<h:form>
-			  		<b:dataTable value="#{evenementController.event.images}" var="img"  paginated="false" searching='false'>
-			   			<b:dataTableColumn label="Image">
-				   			<img src="data:image/jpg;base64,#{img.image}" style="width: 200px; height: 200px;" class="img-thumbnail"></img>
-			   			</b:dataTableColumn>
-			   			<b:dataTableColumn>
-				   			<f:facet name="header">
-					        	Action
-					     	</f:facet>
-			     			<b:commandButton icon="trash" action="#{evenementController.supprimerImage(img)}"></b:commandButton>
-		   				</b:dataTableColumn>
+					<b:commandButton class="boutton" value="Ajouter l'image" action="#{evenementController.ajouterImage()}"></b:commandButton>
+				</h:panelGrid>
+			</h:form>
+			
+			<br/>
+			<hr/>
+			<br/>
+			
+			<h:form>
+			  	<b:dataTable value="#{evenementController.event.images}" var="img"  paginated="true" searching='false'>
+			   		<b:dataTableColumn label="Image">
+				   		<img src="data:image/jpg;base64,#{img.image}" style="width: 200px; height: 200px;" class="img-thumbnail"></img>
+			   		</b:dataTableColumn>
+			   		<b:dataTableColumn>
+				   		<f:facet name="header">
+					        Action
+					     </f:facet>
+			     		<b:commandButton icon="trash" action="#{evenementController.supprimerImage(img)}"></b:commandButton>
+		   			</b:dataTableColumn>
 			   			
-			    	</b:dataTable>
-				</h:form>
+			    </b:dataTable>
+			</h:form>
         </b:container>
     </h:body>
 </html>
