@@ -80,12 +80,12 @@ public class EvenementController implements Serializable {
 		this.event = event; 
 		this.event.setPopularite(this.event.getPopularite()+1); 
 		gestionEvenementEJB.updateEvenement(this.event); 
-		return "detailEvenement.xhtml";	
+		return "detailEvenement.xhtml?faces-redirect=true";	
 	}
 	
 	public String goDetailEventAdmin(Evenement event) {
 		this.event = event;
-		return "detailEvenement.xhtml";	
+		return "detailEvenement.xhtml?faces-redirect=true";	
 	}
 	
 	public String goModificationEvent(Evenement event) {
