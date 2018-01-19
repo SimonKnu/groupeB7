@@ -22,6 +22,7 @@ import javax.servlet.http.Part;
 
 import org.apache.derby.tools.sysinfo;
 
+import be.helha.groupeB7.entities.Administrateur;
 import be.helha.groupeB7.entities.Evenement;
 import be.helha.groupeB7.entities.Image;
 import be.helha.groupeB7.entities.Personne;
@@ -122,7 +123,7 @@ public class EvenementController implements Serializable {
 	}
 
 	
-	public String ajouterImage() {
+	public String ajouterImage(Personne p) {
 		Image im;
 		System.out.println(this.eventImage);
 		try {
@@ -134,7 +135,13 @@ public class EvenementController implements Serializable {
 			e1.printStackTrace();
 		}
 		
-		return "modificationEvent.xhtml?faces-redirect=true";
+		nomImage="";
+		if(p instanceof Administrateur) {
+			return "admin.xhtml?faces-redirect=true";
+		}
+		else {
+			return "myEvents.xhtml?faces-redirect=true";
+		}
 	}
 	
 	public String supprimerImage(Image im) {

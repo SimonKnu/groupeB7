@@ -29,6 +29,9 @@ public class NavigationController {
 		return "listEvent.xhtml?faces-redirect=true";
 	}
 	
+	/*
+	 * Méthode qui permet de se connecter, on doit simplement récupérer la session en cours et la "invalidate"
+	 */
 	public String deconnxion() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 	    session.invalidate();

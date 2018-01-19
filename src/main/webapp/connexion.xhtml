@@ -16,6 +16,10 @@
 	        <hr/>
         	<h2 class="text-center">Connexion</h2>
         	<hr/> 
+        	<!-- 
+        		Méthode post qui permet de se connecter en fonction des Personnes dans la BD
+        		Si les infos sont correctes -> Une session est ouverte automatiquement
+        	 -->
 			<h:form inline="true" id="login" onsubmit="document.getElementById('login').action='j_security_check';" preprendId="false">
 				<h:panelGrid columns="1" cellpadding="2">
 					<b:inputText label="Login" required="true" id="j_username" name="j_username" maxlength="200"></b:inputText>

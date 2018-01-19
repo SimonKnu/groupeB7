@@ -43,7 +43,7 @@
 						
 					<h:inputFile value = "#{evenementController.fileImage}" label="Image"></h:inputFile><br/>
 											
-					<b:commandButton class="boutton" value="Ajouter l'image" action="#{evenementController.ajouterImage()}"></b:commandButton>
+					<b:commandButton class="boutton" value="Ajouter l'image" action="#{evenementController.ajouterImage(connexionController.user)}"></b:commandButton>
 				</h:panelGrid>
 			</h:form>
 			

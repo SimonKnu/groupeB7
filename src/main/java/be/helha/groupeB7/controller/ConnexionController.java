@@ -48,12 +48,18 @@ public class ConnexionController implements Serializable {
 		}
 	}
 	
+	/*
+	 * Méthode qui permet de déterminer si la personne est déjà connecté ou non
+	 * Si elle n'est pas connecté, on la sauvegarde dans un attribut user qui est toujours disponible 
+	 * car on se trouve dans un Controller SessionScoped 
+	 */
 	public void savePersonne() {
 		if(isConnect() == true) {
+			//On doit s'assurer que l'"user" est null pour pas refaire la méthode à chaque fois
 			if(user==null) {
-				System.out.println("SAVEEEEEEEEEEEEEED");
-
+				//On récupère le login de la personne grâce au FacesContext 
 				String name = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
+				//Grâce au login récupéré, on peut set l'user en faisant une requête 
 				user = ejb.getPersonne(name);
 				setVariable();
 			}
@@ -74,10 +80,13 @@ public class ConnexionController implements Serializable {
 	}
 	
 	
-	
+	/*
+	 * Méthode qui permet de déterminer si la personne est déjà connecté ou non
+	 */
 	public boolean isConnect() {
+		//S'il n'y a pas de session activé, la méthode renvoie null donc -> Pas connecté
+		//S'il y en a une, la méthode renvoie le login de l'user -> Connecté 
 		String name = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
-		System.out.println(name);
 		if(name != null) {
 	    	return true;
 	    }
